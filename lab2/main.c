@@ -160,9 +160,9 @@ void test_all() {
     int size = 100;
     while(size <= MAX_MATRIX_SIZE) {
         for(int iteration = 0; iteration < 10; iteration++) {
-            double result1 = ddot_test(double_vector, double_vector, size*size, &scalar_result);
+            double result1 = ddot_test(double_vector, double_vector, size, &scalar_result);
             double result2 = dgemv_test(double_matrix, double_vector, size, double_result_vector);
-            snprintf(buffer, 255, "%d,%d,%lf,%lf\n", size*size, iteration, result1, result2);
+            snprintf(buffer, 255, "%d,%d,%lf,%lf\n", size, iteration, result1, result2);
             int res = fwrite(buffer, 1, strlen(buffer), csv);
             printf("%s\n", buffer);
         }
