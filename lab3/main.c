@@ -9,12 +9,10 @@ static struct timespec timespec_start, timespec_stop;
 struct timespec timespec_diff(struct timespec start, struct timespec stop)
 {
 	struct timespec temp;
-	if ((stop.tv_nsec-start.tv_nsec) < 0) 
-    {
+	if ((stop.tv_nsec-start.tv_nsec) < 0) {
 		temp.tv_sec = stop.tv_sec - start.tv_sec - 1;
 		temp.tv_nsec = 1000000000 + stop.tv_nsec - start.tv_nsec;
-	} else 
-    {
+	} else {
 		temp.tv_sec = stop.tv_sec - start.tv_sec;
 		temp.tv_nsec = stop.tv_nsec -  start.tv_nsec;
 	}
@@ -38,7 +36,6 @@ long stop_timer_long()
 {
     clock_gettime(CLOCK_REALTIME, &timespec_stop);
     struct timespec timespec_diff_time = timespec_diff(timespec_start, timespec_stop);
-    double result = timespec_diff_time.tv_sec + timespec_diff_time.tv_nsec / (double) 1000000000;
     return timespec_diff_time.tv_sec * 1000000000 + timespec_diff_time.tv_nsec;
 }
 
@@ -177,11 +174,11 @@ void test_all()
     snprintf(buffer, 255, "size,iteration,naive,better,blas\n");
     fwrite(buffer, 1, strlen(buffer), csv);
 
-    for (int i = 25; i <= 500; i+=25) {
-        for(int iteration = 0; iteration < 10; iteration++) {
-            matrix_t *A = zeros(i, i);
+    for (int size = 25; size <= 500; size+=25) {
+        for (int iteration = 0; iteration < 10; iteration++) {
+            matrix_t *A = zeros(size, size);
             fill_matrix_random(A);
-            matrix_t *B = zeros(i, i);
+            matrix_t *B = zeros(size, size);
             fill_matrix_random(B);
             matrix_t *C = zeros(A->n, B->m);
 
@@ -209,13 +206,14 @@ void test_all()
             free_matrix(B);
             free_matrix(C);
 
-            snprintf(buffer, 255, "%d,%d,%lf,%lf,%lf\n", i, iteration, naive_result, better_result, blas_result);
+            snprintf(buffer, 255, "%d,%d,%lf,%lf,%lf\n", size, iteration, naive_result, better_result, blas_result);
             fwrite(buffer, 1, strlen(buffer), csv);
             printf("%s", buffer);
         }
     }
 
     fclose(csv);
+    free(buffer);
 }
 
 void test() 
@@ -235,6 +233,10 @@ void test()
     matrix_t *matrix3 = zeros(matrix1->n, matrix2->m);
     naive_multiplication(matrix1, matrix2, matrix3);
     print_matrix(matrix3);
+
+    free_matrix(matrix1);
+    free_matrix(matrix2);
+    free_matrix(matrix3);
 }
 
 int main (void)
