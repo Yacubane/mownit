@@ -61,9 +61,9 @@ gsl_matrix_view create_matrix_view (matrix_t *matrix)
     return gsl_matrix_view_array(matrix->data, matrix->n, matrix->m);
 }
 
-int get_position (matrix_t *matrix, int x, int y) 
+int get_position (matrix_t *matrix, int i, int j) 
 {
-    return y*matrix->m + x;
+    return i*matrix->m + j;
 }
 
 
@@ -81,12 +81,12 @@ int naive_multiplication(matrix_t *A, matrix_t *B, matrix_t *C)
     int i, j, k;
     if (A->n != B->m || A->m != B->n)
         return -1;
-    for (i = 0; i < Bm; i++) {
-        for (j = 0; j < An; j++) {
-            int c_pos = j*Cm + i;
+    for (j = 0; j < Bm; j++) {
+        for (i = 0; i < An; i++) {
+            int c_pos = i*Cm + j;
             for (k = 0; k < Am; k++) {
-                int a_pos = j*Am + k;
-                int b_pos = k*Bm + i;
+                int a_pos = i*Am + k;
+                int b_pos = k*Bm + j;
                 Cdata[c_pos] = Cdata[c_pos] + (Adata[a_pos] * Bdata[b_pos]);
             }
         }
@@ -108,12 +108,12 @@ int better_multiplication(matrix_t *A, matrix_t *B, matrix_t *C)
     int i, j, k;
     if (A->n != B->m || A->m != B->n)
         return -1;
-    for (j = 0; j < An; j++) {
+    for (i = 0; i < An; i++) {
         for (k = 0; k < Am; k++) {
-            int a_pos = j*Am + k;
-            for (i = 0; i < Bm; i++) {
-                int c_pos = j*Cm + i;
-                int b_pos = k*Bm + i;
+            int a_pos = i*Am + k;
+            for (j = 0; j < Bm; j++) {
+                int c_pos = i*Cm + j;
+                int b_pos = k*Bm + j;
                 Cdata[c_pos] = Cdata[c_pos] + (Adata[a_pos] * Bdata[b_pos]);
             }
         }
@@ -126,7 +126,7 @@ void print_matrix(matrix_t *A)
     for (int j = 0; j < A->n; j++) {
         printf("[");
         for(int i = 0; i < A->m; i++) {
-            int pos = get_position(A, i, j);
+            int pos = get_position(A, j, i);
             printf(" %6.2f ", A->data[pos]);
         }
         printf("]\n");
@@ -137,7 +137,7 @@ void fill_matrix(matrix_t *A)
 {
     for (int j = 0; j < A->n; j++) {
         for(int i = 0; i < A->m; i++) {
-            int pos = get_position(A, i, j);
+            int pos = get_position(A, j, i);
             A->data[pos] = pos;
         }
     }
@@ -146,7 +146,7 @@ void fill_matrix_zeros(matrix_t *A)
 {
     for (int j = 0; j < A->n; j++) {
         for(int i = 0; i < A->m; i++) {
-            int pos = get_position(A, i, j);
+            int pos = get_position(A, j, i);
             A->data[pos] = 0;
         }
     }
