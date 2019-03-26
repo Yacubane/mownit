@@ -167,9 +167,9 @@ void free_matrix(matrix_t *A)
     free(A);
 }
 
-void test_all()
+void test_all(char* file_name)
 {
-    FILE* csv = fopen("matrix_multiplication.csv", "w");
+    FILE* csv = fopen(file_name, "w");
     char *buffer = malloc(255 * sizeof(char));
     snprintf(buffer, 255, "size,iteration,naive,better,blas\n");
     fwrite(buffer, 1, strlen(buffer), csv);
@@ -239,8 +239,8 @@ void test()
     free_matrix(matrix3);
 }
 
-int main (void)
+int main (int charc, char* argv[])
 {
-    test_all();      
+    test_all(argv[1]);      
     return 0;
 }
