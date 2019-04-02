@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html class="client-js ve-not-available" dir="ltr" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>QR algorithm - Wikipedia</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"QR_algorithm","wgTitle":"QR algorithm","wgCurRevisionId":814345957,"wgRevisionId":814345957,"wgArticleId":594072,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["All articles with dead external links","Articles with dead external links from July 2016","Articles with permanently dead external links","Wikipedia articles needing clarification from June 2012","Numerical linear algebra"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"QR_algorithm","wgRelevantArticleId":594072,"wgRequestId":"XJe7hwpAAEQAADBEYT8AAABT","wgCSPNonce":false,"wgIsProbablyEditable":true,"wgRelevantPageIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgFlaggedRevsParams":{"tags":{}},"wgStableRevisionId":null,"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgWikiEditorEnabledModules":[],"wgBetaFeaturesFeatures":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgPopupsReferencePreviews":false,"wgPopupsShouldSendModuleToUser":true,"wgPopupsConflictsWithNavPopupGadget":false,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","pageVariantFallbacks":"en","usePageImages":true,"usePageDescriptions":true},"wgMFDisplayWikibaseDescriptions":{"search":true,"nearby":true,"watchlist":true,"tagline":false},"wgRelatedArticles":null,"wgRelatedArticlesUseCirrusSearch":true,"wgRelatedArticlesOnlyUseCirrusSearch":false,"wgWMESchemaEditAttemptStepOversample":false,"wgPoweredByHHVM":true,"wgULSCurrentAutonym":"English","wgNoticeProject":"wikipedia","wgCentralNoticeCookiesToDelete":[],"wgCentralNoticeCategoriesUsingLegacy":["Fundraising","fundraising"],"wgWikibaseItemId":"Q453132","wgScoreNoteLanguages":{"arabic":"العربية","catalan":"català","deutsch":"Deutsch","english":"English","espanol":"español","italiano":"italiano","nederlands":"Nederlands","norsk":"norsk","portugues":"português","suomi":"suomi","svenska":"svenska","vlaams":"West-Vlams"},"wgScoreDefaultNoteLanguage":"nederlands","wgCentralAuthMobileDomain":false,"wgCodeMirrorEnabled":true,"wgVisualEditorToolbarScrollOffset":0,"wgVisualEditorUnsupportedEditParams":["undo","undoafter","veswitched"],"wgEditSubmitButtonLabelPublish":true,"oresWikiId":"enwiki","oresBaseUrl":"http://ores.discovery.wmnet:8081/","oresApiVersion":3});mw.loader.state({"ext.gadget.charinsert-styles":"ready","ext.globalCssJs.user.styles":"ready","ext.globalCssJs.site.styles":"ready","site.styles":"ready","noscript":"ready","user.styles":"ready","ext.globalCssJs.user":"ready","ext.globalCssJs.site":"ready","user":"ready","user.options":"ready","user.tokens":"loading","ext.cite.styles":"ready","ext.math.styles":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.toc.styles":"ready","wikibase.client.init":"ready","ext.visualEditor.desktopArticleTarget.noscript":"ready","ext.uls.interlanguage":"ready","ext.wikimediaBadges":"ready","ext.3d.styles":"ready","mediawiki.skinning.interface":"ready","skins.vector.styles":"ready"});mw.loader.implement("user.tokens@0tffind",function($,jQuery,require,module){/*@nomin*/mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+});RLPAGEMODULES=["ext.cite.ux-enhancements","ext.math.scripts","site","mediawiki.page.startup","mediawiki.page.ready","mediawiki.toc","mediawiki.searchSuggest","ext.gadget.teahouse","ext.gadget.ReferenceTooltips","ext.gadget.watchlist-notice","ext.gadget.DRN-wizard","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.extra-toolbar-buttons","ext.gadget.switcher","ext.centralauth.centralautologin","ext.popups","ext.visualEditor.desktopArticleTarget.init","ext.visualEditor.targetLoader","ext.eventLogging","ext.wikimediaEvents","ext.navigationTiming","ext.uls.eventlogger","ext.uls.init","ext.uls.compactlinks","ext.uls.interface","ext.quicksurveys.init","ext.centralNotice.geoIP","ext.centralNotice.startUp","skins.vector.js"];mw.loader.load(RLPAGEMODULES);});</script>
+<link rel="stylesheet" href="QR%20algorithm%20-%20Wikipedia_files/load.css">
+<script async="" src="QR%20algorithm%20-%20Wikipedia_files/load.php"></script>
+<style>
+.mw-editfont-monospace{font-family:monospace,monospace}.mw-editfont-sans-serif{font-family:sans-serif}.mw-editfont-serif{font-family:serif} .mw-editfont-monospace,.mw-editfont-sans-serif,.mw-editfont-serif{font-size:13px; }.mw-editfont-monospace.oo-ui-textInputWidget,.mw-editfont-sans-serif.oo-ui-textInputWidget,.mw-editfont-serif.oo-ui-textInputWidget{font-size:inherit}.mw-editfont-monospace > .oo-ui-inputWidget-input,.mw-editfont-sans-serif > .oo-ui-inputWidget-input,.mw-editfont-serif > .oo-ui-inputWidget-input{font-size:13px}
+.mw-ui-button{background-color:#f8f9fa;color:#222222;display:inline-block;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;min-width:4em;max-width:28.75em;margin:0;padding:0.57142857em 0.9375em;border:1px solid #a2a9b1;border-radius:2px;font-family:inherit;font-size:1em;font-weight:bold;line-height:1;text-align:center;-webkit-appearance:none;*display:inline; zoom:1;vertical-align:middle;cursor:pointer}.mw-ui-button:visited{color:#222222}.mw-ui-button:hover{background-color:#ffffff;color:#444444;border-color:#a2a9b1}.mw-ui-button:focus{background-color:#ffffff;color:#222222;border-color:#3366cc;box-shadow:inset 0 0 0 1px #3366cc,inset 0 0 0 2px #ffffff;outline-width:0}.mw-ui-button:focus::-moz-focus-inner{border-color:transparent;padding:0}.mw-ui-button:active,.mw-ui-button.is-on{background-color:#c8ccd1;color:#000000;border-color:#72777d;box-shadow:none}.mw-ui-button:disabled{background-color:#c8ccd1;color:#ffffff;border-color:#c8ccd1;cursor:default}.mw-ui-button:disabled:hover,.mw-ui-button:disabled:active{background-color:#c8ccd1;color:#ffffff;box-shadow:none;border-color:#c8ccd1}.mw-ui-button:not(:disabled){-webkit-transition:background-color 100ms,color 100ms,border-color 100ms,box-shadow 100ms;-moz-transition:background-color 100ms,color 100ms,border-color 100ms,box-shadow 100ms;transition:background-color 100ms,color 100ms,border-color 100ms,box-shadow 100ms}.mw-ui-button.mw-ui-quiet,.mw-ui-button.mw-ui-quiet.mw-ui-progressive,.mw-ui-button.mw-ui-quiet.mw-ui-destructive{background-color:transparent;color:#222222;border-color:transparent}.mw-ui-button.mw-ui-quiet:hover,.mw-ui-button.mw-ui-quiet.mw-ui-progressive:hover,.mw-ui-button.mw-ui-quiet.mw-ui-destructive:hover{background-color:transparent;color:#444444;border-color:transparent;box-shadow:none}.mw-ui-button.mw-ui-quiet:active,.mw-ui-button.mw-ui-quiet.mw-ui-progressive:active,.mw-ui-button.mw-ui-quiet.mw-ui-destructive:active{background-color:transparent;color:#000000;border-color:transparent}.mw-ui-button.mw-ui-quiet:focus,.mw-ui-button.mw-ui-quiet.mw-ui-progressive:focus,.mw-ui-button.mw-ui-quiet.mw-ui-destructive:focus{background-color:transparent;color:#222222;border-color:transparent;box-shadow:none}.mw-ui-button.mw-ui-quiet:disabled,.mw-ui-button.mw-ui-quiet.mw-ui-progressive:disabled,.mw-ui-button.mw-ui-quiet.mw-ui-destructive:disabled,.mw-ui-button.mw-ui-quiet:disabled:hover,.mw-ui-button.mw-ui-quiet.mw-ui-progressive:disabled:hover,.mw-ui-button.mw-ui-quiet.mw-ui-destructive:disabled:hover,.mw-ui-button.mw-ui-quiet:disabled:active,.mw-ui-button.mw-ui-quiet.mw-ui-progressive:disabled:active,.mw-ui-button.mw-ui-quiet.mw-ui-destructive:disabled:active{background-color:transparent;color:#72777d;border-color:transparent}.mw-ui-button.mw-ui-progressive{background-color:#3366cc;color:#fff;border:1px solid #3366cc}.mw-ui-button.mw-ui-progressive:hover{background-color:#447ff5;border-color:#447ff5}.mw-ui-button.mw-ui-progressive:focus{box-shadow:inset 0 0 0 1px #3366cc,inset 0 0 0 2px #ffffff}.mw-ui-button.mw-ui-progressive:active,.mw-ui-button.mw-ui-progressive.is-on{background-color:#2a4b8d;border-color:#2a4b8d;box-shadow:none}.mw-ui-button.mw-ui-progressive:disabled{background-color:#c8ccd1;color:#fff;border-color:#c8ccd1}.mw-ui-button.mw-ui-progressive:disabled:hover,.mw-ui-button.mw-ui-progressive:disabled:active{background-color:#c8ccd1;color:#fff;border-color:#c8ccd1;box-shadow:none}.mw-ui-button.mw-ui-progressive.mw-ui-quiet{color:#3366cc}.mw-ui-button.mw-ui-progressive.mw-ui-quiet:hover{background-color:transparent;color:#447ff5}.mw-ui-button.mw-ui-progressive.mw-ui-quiet:active{color:#2a4b8d}.mw-ui-button.mw-ui-progressive.mw-ui-quiet:focus{background-color:transparent;color:#3366cc}.mw-ui-button.mw-ui-destructive{background-color:#dd3333;color:#fff;border:1px solid #dd3333}.mw-ui-button.mw-ui-destructive:hover{background-color:#ff4242;border-color:#ff4242}.mw-ui-button.mw-ui-destructive:focus{box-shadow:inset 0 0 0 1px #dd3333,inset 0 0 0 2px #ffffff}.mw-ui-button.mw-ui-destructive:active,.mw-ui-button.mw-ui-destructive.is-on{background-color:#b32424;border-color:#b32424;box-shadow:none}.mw-ui-button.mw-ui-destructive:disabled{background-color:#c8ccd1;color:#fff;border-color:#c8ccd1}.mw-ui-button.mw-ui-destructive:disabled:hover,.mw-ui-button.mw-ui-destructive:disabled:active{background-color:#c8ccd1;color:#fff;border-color:#c8ccd1;box-shadow:none}.mw-ui-button.mw-ui-destructive.mw-ui-quiet{color:#dd3333}.mw-ui-button.mw-ui-destructive.mw-ui-quiet:hover{background-color:transparent;color:#ff4242}.mw-ui-button.mw-ui-destructive.mw-ui-quiet:active{color:#b32424}.mw-ui-button.mw-ui-destructive.mw-ui-quiet:focus{background-color:transparent;color:#dd3333}.mw-ui-button.mw-ui-big{font-size:1.3em}.mw-ui-button.mw-ui-block{display:block;width:100%;margin-left:auto;margin-right:auto}input.mw-ui-button::-moz-focus-inner,button.mw-ui-button::-moz-focus-inner{margin-top:-1px;margin-bottom:-1px}a.mw-ui-button{text-decoration:none}a.mw-ui-button:hover,a.mw-ui-button:focus{text-decoration:none}.mw-ui-button-group > *{min-width:48px;border-radius:0;float:left}.mw-ui-button-group > *:first-child{border-top-left-radius:2px;border-bottom-left-radius:2px}.mw-ui-button-group > *:not(:first-child){border-left:0}.mw-ui-button-group > *:last-child{border-top-right-radius:2px;border-bottom-right-radius:2px}.mw-ui-button-group .is-on .button{cursor:default}
+.cite-accessibility-label{ top:-99999px;clip:rect(1px 1px 1px 1px); clip:rect(1px,1px,1px,1px); position:absolute !important;padding:0 !important;border:0 !important;height:1px !important;width:1px !important; overflow:hidden}:target .mw-cite-targeted-backlink{font-weight:bold}.mw-cite-up-arrow-backlink{display:none}:target .mw-cite-up-arrow-backlink{display:inline}:target .mw-cite-up-arrow{display:none}
+.ve-init-mw-progressBarWidget{height:1em;overflow:hidden;margin:0 25%}.ve-init-mw-progressBarWidget-bar{height:1em;width:0} .ve-init-mw-progressBarWidget{height:0.75em;border:1px solid #36c;background:#fff;border-radius:2px;box-shadow:0 0.1em 0 0 rgba(0,0,0,0.15)}.ve-init-mw-progressBarWidget-bar{height:0.75em;background:#36c}
+.wp-teahouse-question-form{position:absolute;margin-left:auto;margin-right:auto;background-color:#f4f3f0;border:1px solid #a7d7f9;padding:1em}#wp-th-question-ask{float:right}.wp-teahouse-ask a.external{background-image:none !important}.wp-teahouse-respond-form{position:absolute;margin-left:auto;margin-right:auto;background-color:#f4f3f0;border:1px solid #a7d7f9;padding:1em}.wp-th-respond{float:right}.wp-teahouse-respond a.external{background-image:none !important}
+.rt-tooltip{position:absolute;z-index:100;max-width:350px;background:#fff;color:#222;font-size:13px;line-height:1.5em;border:1px solid #c8ccd1;border-radius:3px;-webkit-box-shadow:0 15px 45px -10px rgba(0,0,0,0.3);box-shadow:0 15px 45px -10px rgba(0,0,0,0.3);overflow-wrap:break-word}.rt-tooltip.rt-tooltip-insideWindow{z-index:110}.rt-tooltipContent{padding:8px 11px}.rt-tooltip-above .rt-tooltipContent{margin-bottom:-8px;padding-bottom:16px}.rt-tooltip-below .rt-tooltipContent{margin-top:-10px;padding-top:18px}.rt-tooltipTail,.rt-tooltipTail:after{position:absolute;width:12px;height:12px}.rt-tooltipTail{background:#c8ccd1;background:-webkit-linear-gradient(bottom left,#c8ccd1 50%,rgba(0,0,0,0) 50%);background:linear-gradient(to top right,#c8ccd1 50%,rgba(0,0,0,0) 50%)}.rt-tooltipTail:after{content:"";background:#fff;bottom:1px;left:1px}.rt-tooltip-above .rt-tooltipTail{-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:100% 100%;transform-origin:100% 100%;bottom:0;left:15px}.rt-tooltip-below .rt-tooltipTail{-webkit-transform:rotate(135deg);transform:rotate(135deg);-webkit-transform-origin:0 0;transform-origin:0 0;top:0;left:27px}.rt-settingsLink{background-image:linear-gradient(transparent,transparent),url(data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0D%0A%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%0D%0A%20%20%20%20%3Cpath%20fill%3D%22%23555%22%20d%3D%22M20%2014.5v-2.9l-1.8-.3c-.1-.4-.3-.8-.6-1.4l1.1-1.5-2.1-2.1-1.5%201.1c-.5-.3-1-.5-1.4-.6L13.5%205h-2.9l-.3%201.8c-.5.1-.9.3-1.4.6L7.4%206.3%205.3%208.4l1%201.5c-.3.5-.4.9-.6%201.4l-1.7.2v2.9l1.8.3c.1.5.3.9.6%201.4l-1%201.5%202.1%202.1%201.5-1c.4.2.9.4%201.4.6l.3%201.8h3l.3-1.8c.5-.1.9-.3%201.4-.6l1.5%201.1%202.1-2.1-1.1-1.5c.3-.5.5-1%20.6-1.4l1.5-.3zM12%2016c-1.7%200-3-1.3-3-3s1.3-3%203-3%203%201.3%203%203-1.3%203-3%203z%22%2F%3E%0D%0A%3C%2Fsvg%3E);float:right;cursor:pointer;margin:-4px -4px 0 8px;height:24px;width:24px;border-radius:2px;background-position:center center;background-repeat:no-repeat;background-size:24px 24px}.rt-settingsLink:hover{background-color:#eee}.rt-target{background-color:#def}.rt-enableSelect{font-weight:bold}.rt-settingsFormSeparator{margin:0.85714286em 0}.rt-numberInput.rt-numberInput{width:150px}.rt-tooltipsForCommentsField.rt-tooltipsForCommentsField.rt-tooltipsForCommentsField{margin-top:1.64285714em}.rt-disabledHelp{border-collapse:collapse}.rt-disabledHelp td{padding:0}.rt-disabledNote.rt-disabledNote{vertical-align:bottom;padding-left:0.36em;font-weight:bold}@-webkit-keyframes rt-fade-in-up{0%{opacity:0;-webkit-transform:translate(0,20px);-moz-transform:translate(0,20px);-ms-transform:translate(0,20px);transform:translate(0,20px) }100%{opacity:1;-webkit-transform:translate(0,0);-moz-transform:translate(0,0);-ms-transform:translate(0,0);transform:translate(0,0) }}@-moz-keyframes rt-fade-in-up{0%{opacity:0;-webkit-transform:translate(0,20px);-moz-transform:translate(0,20px);-ms-transform:translate(0,20px);transform:translate(0,20px) }100%{opacity:1;-webkit-transform:translate(0,0);-moz-transform:translate(0,0);-ms-transform:translate(0,0);transform:translate(0,0) }}@keyframes rt-fade-in-up{0%{opacity:0;-webkit-transform:translate(0,20px);-moz-transform:translate(0,20px);-ms-transform:translate(0,20px);transform:translate(0,20px) }100%{opacity:1;-webkit-transform:translate(0,0);-moz-transform:translate(0,0);-ms-transform:translate(0,0);transform:translate(0,0) }}@-webkit-keyframes rt-fade-in-down{0%{opacity:0;-webkit-transform:translate(0,-20px);-moz-transform:translate(0,-20px);-ms-transform:translate(0,-20px);transform:translate(0,-20px) }100%{opacity:1;-webkit-transform:translate(0,0);-moz-transform:translate(0,0);-ms-transform:translate(0,0);transform:translate(0,0) }}@-moz-keyframes rt-fade-in-down{0%{opacity:0;-webkit-transform:translate(0,-20px);-moz-transform:translate(0,-20px);-ms-transform:translate(0,-20px);transform:translate(0,-20px) }100%{opacity:1;-webkit-transform:translate(0,0);-moz-transform:translate(0,0);-ms-transform:translate(0,0);transform:translate(0,0) }}@keyframes rt-fade-in-down{0%{opacity:0;-webkit-transform:translate(0,-20px);-moz-transform:translate(0,-20px);-ms-transform:translate(0,-20px);transform:translate(0,-20px) }100%{opacity:1;-webkit-transform:translate(0,0);-moz-transform:translate(0,0);-ms-transform:translate(0,0);transform:translate(0,0) }}@-webkit-keyframes rt-fade-out-down{0%{opacity:1;-webkit-transform:translate(0,0);-moz-transform:translate(0,0);-ms-transform:translate(0,0);transform:translate(0,0) }100%{opacity:0;-webkit-transform:translate(0,20px);-moz-transform:translate(0,20px);-ms-transform:translate(0,20px);transform:translate(0,20px) }}@-moz-keyframes rt-fade-out-down{0%{opacity:1;-webkit-transform:translate(0,0);-moz-transform:translate(0,0);-ms-transform:translate(0,0);transform:translate(0,0) }100%{opacity:0;-webkit-transform:translate(0,20px);-moz-transform:translate(0,20px);-ms-transform:translate(0,20px);transform:translate(0,20px) }}@keyframes rt-fade-out-down{0%{opacity:1;-webkit-transform:translate(0,0);-moz-transform:translate(0,0);-ms-transform:translate(0,0);transform:translate(0,0) }100%{opacity:0;-webkit-transform:translate(0,20px);-moz-transform:translate(0,20px);-ms-transform:translate(0,20px);transform:translate(0,20px) }}@-webkit-keyframes rt-fade-out-up{0%{opacity:1;-webkit-transform:translate(0,0);-moz-transform:translate(0,0);-ms-transform:translate(0,0);transform:translate(0,0) }100%{opacity:0;-webkit-transform:translate(0,-20px);-moz-transform:translate(0,-20px);-ms-transform:translate(0,-20px);transform:translate(0,-20px) }}@-moz-keyframes rt-fade-out-up{0%{opacity:1;-webkit-transform:translate(0,0);-moz-transform:translate(0,0);-ms-transform:translate(0,0);transform:translate(0,0) }100%{opacity:0;-webkit-transform:translate(0,-20px);-moz-transform:translate(0,-20px);-ms-transform:translate(0,-20px);transform:translate(0,-20px) }}@keyframes rt-fade-out-up{0%{opacity:1;-webkit-transform:translate(0,0);-moz-transform:translate(0,0);-ms-transform:translate(0,0);transform:translate(0,0) }100%{opacity:0;-webkit-transform:translate(0,-20px);-moz-transform:translate(0,-20px);-ms-transform:translate(0,-20px);transform:translate(0,-20px) }}.rt-fade-in-up{-webkit-animation:rt-fade-in-up 0.2s ease forwards;-moz-animation:rt-fade-in-up 0.2s ease forwards;animation:rt-fade-in-up 0.2s ease forwards }.rt-fade-in-down{-webkit-animation:rt-fade-in-down 0.2s ease forwards;-moz-animation:rt-fade-in-down 0.2s ease forwards;animation:rt-fade-in-down 0.2s ease forwards }.rt-fade-out-down{-webkit-animation:rt-fade-out-down 0.2s ease forwards;-moz-animation:rt-fade-out-down 0.2s ease forwards;animation:rt-fade-out-down 0.2s ease forwards }.rt-fade-out-up{-webkit-animation:rt-fade-out-up 0.2s ease forwards;-moz-animation:rt-fade-out-up 0.2s ease forwards;animation:rt-fade-out-up 0.2s ease forwards }
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:0;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:#fff;cursor:pointer;border:1px solid #a2a9b1;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:#fff;cursor:pointer;border:1px solid #a2a9b1;padding:0;margin:0}.suggestions-result{color:#000;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#2a4b8d;color:#fff}.suggestions-special .special-label{color:#72777d;text-align:left}.suggestions-special .special-query{color:#000;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:#c8ccd1}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:#fff}.highlight{font-weight:bold}
+@media screen {
+	.tochidden,.toctoggle{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}.toctoggle{font-size:94%}}
+@media print {
+	.toc.tochidden,.toctoggle{display:none}}
+@-webkit-keyframes centralAuthPPersonalAnimation{0%{opacity:0;-webkit-transform:translateY(-20px)}100%{opacity:1;-webkit-transform:translateY(0)}}@-moz-keyframes centralAuthPPersonalAnimation{0%{opacity:0;-moz-transform:translateY(-20px)}100%{opacity:1;-moz-transform:translateY(0)}}@-o-keyframes centralAuthPPersonalAnimation{0%{opacity:0;-o-transform:translateY(-20px)}100%{opacity:1;-o-transform:translateY(0)}}@keyframes centralAuthPPersonalAnimation{0%{opacity:0;transform:translateY(-20px)}100%{opacity:1;transform:translateY(0)}}.centralAuthPPersonalAnimation{-webkit-animation-duration:1s;-moz-animation-duration:1s;-o-animation-duration:1s;animation-duration:1s;-webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-name:centralAuthPPersonalAnimation;-moz-animation-name:centralAuthPPersonalAnimation;-o-animation-name:centralAuthPPersonalAnimation;animation-name:centralAuthPPersonalAnimation}
+@media print{#centralNotice{display:none}}.cn-closeButton{display:inline-block;zoom:1;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUBAMAAAB/pwA+AAAAElBMVEUAAAAQEBDPz88AAABAQEDv7+9oe1vvAAAABnRSTlMA3rLe3rJS22KzAAAARElEQVQI12PAAUIUQCSTK5BwFgIxFU1AhKECUFAYKAAioXwwBeZChMGCEGGQIFQYJohgIhQgtCEMQ7ECYTHCOciOxA4AADgJTXIb9s8AAAAASUVORK5CYII=) no-repeat;background:url(/w/extensions/CentralNotice/resources/subscribing/close.png?8e3d8) no-repeat!ie;width:20px;height:20px;text-indent:20px;white-space:nowrap;overflow:hidden}
+.uls-menu{border-radius:2px; font-size:medium}.uls-search,.uls-language-settings-close-block{border-top-right-radius:2px;border-top-left-radius:2px}.uls-language-list{border-bottom-right-radius:2px;border-bottom-left-radius:2px}.uls-menu.callout:before,.uls-menu.callout:after{border-top:10px solid transparent;border-bottom:10px solid transparent;display:inline-block; top:17px;position:absolute;content:''}.uls-menu.callout.selector-right:before{ border-left:10px solid #c8ccd1; right:-11px}.uls-menu.callout.selector-right:after{ border-left:10px solid #fff; right:-10px}.uls-menu.callout.selector-left:before{ border-right:10px solid #c8ccd1; left:-11px}.uls-menu.callout.selector-left:after{ border-right:10px solid #fff; left:-10px}.uls-ui-languages button{margin:5px 15px 5px 0;white-space:nowrap;overflow:hidden}.uls-search-wrapper-wrapper{position:relative;padding-left:40px;margin-top:5px;margin-bottom:5px}.uls-icon-back{background:transparent url(/w/extensions/UniversalLanguageSelector/resources/images/back-grey-ltr.png?90e9b) no-repeat scroll center center;background-image:-webkit-linear-gradient(transparent,transparent),url(/w/extensions/UniversalLanguageSelector/resources/images/back-grey-ltr.svg?e226b);background-image:linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22%3E %3Cpath fill=%22%2354595d%22 d=%22M7 13.1l8.9 8.9c.8-.8.8-2 0-2.8l-6.1-6.1 6-6.1c.8-.8.8-2 0-2.8L7 13.1z%22/%3E %3C/svg%3E");background-size:28px;background-position:center center;height:32px;width:40px;display:block;position:absolute;left:0;border-right:1px solid #c8ccd1;opacity:0.8}.uls-icon-back:hover{opacity:1;cursor:pointer}.uls-menu .uls-no-results-view .uls-no-found-more{background-color:#fff}.uls-menu .uls-no-results-view h3{padding:0 28px;margin:0;color:#54595d;font-size:1em;font-weight:normal}  .skin-vector .uls-menu{border-color:#c8ccd1;-webkit-box-shadow:0 2px 2px 0 rgba(0,0,0,0.25);box-shadow:0 2px 2px 0 rgba(0,0,0,0.25);font-size:0.875em}.skin-vector .uls-search{border-bottom-color:#c8ccd1}.skin-vector .uls-filtersuggestion{color:#72777d}.skin-vector .uls-lcd-region-title{color:#54595d}
+.ext-quick-survey-panel,.ext-qs-loader-bar{width:auto;background-color:#eaecf0} .ext-qs-loader-bar{display:block;height:100px;margin-left:1.4em;clear:right;float:right;background-color:#eaecf0}.ext-qs-loader-bar.mw-ajax-loader{top:0}@media all and (min-width:720px){.ext-qs-loader-bar,.ext-quick-survey-panel{margin-left:1.4em;width:300px;clear:right;float:right}}</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:#000;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:#fff}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ve-init-mw-tempWikitextEditorWidget{border:0;padding:0;color:inherit;line-height:1.5em;width:100%; }.ve-init-mw-tempWikitextEditorWidget:focus{outline:0;padding:0}.ve-init-mw-tempWikitextEditorWidget::selection{background:rgba(109,169,247,0.5); }
+#p-lang .body ul .uls-trigger,#p-lang .pBody ul .uls-trigger{background-image:none;padding:0} .mw-interlanguage-selector,.mw-interlanguage-selector:active{cursor:pointer;padding:4px 6px 4px 25px;font-size:13px;font-weight:normal;background-image:url(/w/extensions/UniversalLanguageSelector/resources/images/compact-links-trigger.png?b0c8e);background-image:linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2218%22 height=%2218%22 viewBox=%220 0 24 24%22%3E %3Cpath fill=%22%2372777d%22 d=%22M13 19l.8-3h5.3l.9 3h2.2L18 6h-3l-4.2 13H13zm3.5-11l2 6h-4l2-6zM5 4l.938 1.906H1V8h1.594C3.194 9.8 4 11.206 5 12.406c-1.1.7-4.313 1.781-4.313 1.781L2 16s3.487-1.387 4.688-2.188c1 .7 2.319 1.188 3.719 1.688l.594-2c-1-.3-1.988-.688-2.688-1.188 1.1-1.1 1.9-2.506 2.5-4.406h2.188l.5-2H7.938L7 4H5zm-.188 4h3.781c-.4 1.3-.906 2-1.906 3-1.1-1-1.475-1.7-1.875-3z%22/%3E %3C/svg%3E");background-size:18px;background-repeat:no-repeat;background-position:left 4px center;margin:4px 0;text-align:left}.mw-interlanguage-selector:active,.mw-interlanguage-selector.selector-open{background-color:#c8ccd1;color:#54595d}.interlanguage-uls-menu:before,.interlanguage-uls-menu:after{border-top:10px solid transparent;border-bottom:10px solid transparent;display:inline-block; top:17px;position:absolute;content:''}.interlanguage-uls-menu.selector-right:before{ border-left:10px solid #c8ccd1; right:-11px}.interlanguage-uls-menu.selector-right:after{ border-left:10px solid #fff; right:-10px}.interlanguage-uls-menu.selector-left:before{ border-right:10px solid #c8ccd1; left:-11px}.interlanguage-uls-menu.selector-left:after{ border-right:10px solid #fff; left:-10px}
+#uls-settings-block{background-color:#f8f9fa;border-top:1px solid #c8ccd1;padding-left:10px;line-height:1.2em;border-radius:0 0 2px 2px}#uls-settings-block > button{background:left top transparent no-repeat;background-size:20px auto;color:#54595d;display:inline-block;margin:8px 15px;border:0;padding:0 0 0 26px;font-size:medium;cursor:pointer}#uls-settings-block > button:hover{color:#222}#uls-settings-block > button.display-settings-block{background-image:url(/w/extensions/UniversalLanguageSelector/resources/images/display.png?d25f1);background-image:linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22%3E %3Cpath fill=%22%23222%22 d=%22M.002 2.275V15.22h8.405c.535 1.624-.975 1.786-1.902 2.505 0 0 2.293-.024 3.439-.024 1.144 0 3.432.024 3.432.024-.905-.688-2.355-.868-1.902-2.505h8.527V2.275h-20zm6.81 1.84h.797l3.313 8.466H9.879L8.836 9.943H5.462l-1.043 2.638h-.982zm.368 1.104c-.084.369-.211.785-.368 1.227L5.83 9.023h2.699l-.982-2.577c-.128-.33-.234-.747-.368-1.227zm7.117.982c.753 0 1.295.157 1.656.491.365.334.552.858.552 1.595v4.294h-.675l-.184-.859h-.062c-.315.396-.605.655-.92.798-.311.138-.758.184-1.227.184-.626 0-1.115-.168-1.472-.491-.353-.323-.491-.754-.491-1.35 0-1.275 1.028-1.963 3.068-2.025h1.043v-.429c0-.495-.091-.87-.307-1.104-.211-.238-.574-.307-1.043-.307-.526 0-1.115.107-1.779.429l-.307-.675a4.748 4.748 0 0 1 1.043-.429 4.334 4.334 0 0 1 1.104-.123zm.307 3.313c-.761.027-1.318.157-1.656.368-.334.207-.491.54-.491.982 0 .346.1.617.307.798.211.181.544.245.92.245.595 0 1.012-.164 1.35-.491.342-.326.552-.762.552-1.35v-.552z%22/%3E %3C/svg%3E")}#uls-settings-block > button.input-settings-block{background-image:url(/w/extensions/UniversalLanguageSelector/resources/images/input.png?aea9e);background-image:linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22%3E %3Cpath fill=%22%23222%22 d=%22M9 1.281c-.124.259-.185.599-.5.688-.55.081-1.133.018-1.688 0-.866-.032-1.733-.148-2.594 0-.588.157-.953.727-1.188 1.25-.178.416-.271.836-.344 1.281H-.002V16h20V4.5H3.654c.109-.52.203-1.057.563-1.469.222-.231.587-.17.875-.188 1.212.003 2.415.179 3.625.063.463-.058.812-.455.969-.875l.188-.438-.875-.313zM1.875 7.125h1.563c.094 0 .188.093.188.188v1.531a.201.201 0 0 1-.188.188H1.875c-.094 0-.156-.093-.156-.188V7.313c0-.094.062-.188.156-.188zm2.844 0h1.563c.094 0 .156.093.156.188v1.531c0 .094-.062.188-.156.188H4.719c-.094 0-.156-.093-.156-.188V7.313c0-.094.062-.188.156-.188zm2.844 0h1.563c.094 0 .156.093.156.188v1.531c0 .094-.062.188-.156.188H7.563a.201.201 0 0 1-.188-.188V7.313c0-.094.093-.188.188-.188zm2.813 0h1.563c.094 0 .188.093.188.188v1.531a.201.201 0 0 1-.188.188h-1.563c-.094 0-.156-.093-.156-.188V7.313c0-.094.062-.188.156-.188zm2.844 0h1.563c.094 0 .156.093.156.188v1.531c0 .094-.062.188-.156.188H13.22c-.094 0-.156-.093-.156-.188V7.313c0-.094.062-.188.156-.188zm2.844 0h1.531c.094 0 .188.093.188.188v1.531a.201.201 0 0 1-.188.188h-1.531a.201.201 0 0 1-.188-.188V7.313c0-.094.093-.188.188-.188zm-12.844 3h1.563c.094 0 .156.093.156.188v1.563c0 .094-.062.156-.156.156H3.22c-.094 0-.156-.062-.156-.156v-1.563c0-.094.062-.188.156-.188zm2.906 0h1.563c.094 0 .188.093.188.188v1.563c0 .094-.093.156-.188.156H6.126c-.094 0-.156-.062-.156-.156v-1.563c0-.094.062-.188.156-.188zm2.938 0h1.531c.094 0 .188.093.188.188v1.563c0 .094-.093.156-.188.156H9.064c-.094 0-.188-.062-.188-.156v-1.563c0-.094.093-.188.188-.188zm2.906 0h1.563c.094 0 .156.093.156.188v1.563c0 .094-.062.156-.156.156H11.97c-.094 0-.188-.062-.188-.156v-1.563c0-.094.093-.188.188-.188zm2.906 0h1.563c.094 0 .156.093.156.188v1.563c0 .094-.062.156-.156.156h-1.563c-.094 0-.156-.062-.156-.156v-1.563c0-.094.062-.188.156-.188zM4.001 13.688h12c.088 0 .156.068.156.156v.844a.154.154 0 0 1-.156.156h-12a.154.154 0 0 1-.156-.156v-.844c0-.088.068-.156.156-.156z%22/%3E %3C/svg%3E")}</style><style>
+.client-js ol.mw-collapsible:before,.client-js ul.mw-collapsible:before,.client-js .mw-collapsible-toggle-li{ display:list-item;list-style:none;margin-bottom:0.1em}.client-js ol.mw-made-collapsible:before,.client-js ul.mw-made-collapsible:before{display:none}.client-js ol.mw-collapsible:not(.mw-made-collapsible):before,.client-js ul.mw-collapsible:not(.mw-made-collapsible):before,.client-js table.mw-collapsible:not(.mw-made-collapsible) :first-child tr:first-child th:last-child:before,.client-js table.mw-collapsible:not(.mw-made-collapsible) > caption:first-child:after,.client-js div.mw-collapsible:not(.mw-made-collapsible):before{content:'[hide]'}.client-js td.mw-collapsed:not(.mw-made-collapsible):before,.client-js table.mw-collapsed:not(.mw-made-collapsible) :first-child tr:first-child th:last-child:before,.client-js table.mw-collapsed:not(.mw-made-collapsible) > caption:first-child:after,.client-js div.mw-collapsed:not(.mw-made-collapsible):before{content:'[show]'}.client-js .mw-collapsible[id^='mw-customcollapsible'] th:before,.client-js .mw-collapsible[id^='mw-customcollapsible']:before{content:none !important}.client-js table.mw-collapsible:not(.mw-made-collapsible) > caption:first-child:after{float:none;display:block}.client-js .mw-collapsed:not(.mw-made-collapsible) > p,.client-js .mw-collapsed:not(.mw-made-collapsible) > table,.client-js .mw-collapsed:not(.mw-made-collapsible) > thead + tbody,.client-js .mw-collapsed:not(.mw-made-collapsible) tr:not(:first-child),.client-js .mw-collapsed:not(.mw-made-collapsible) .mw-collapsible-content{display:none} .mw-collapsible:not(.mw-made-collapsible) th:before,.mw-collapsible:not(.mw-made-collapsible):before,.mw-collapsible-toggle{float:right}  .mw-content-ltr .mw-collapsible:not(.mw-made-collapsible) th:before,.mw-content-rtl .mw-content-ltr .mw-collapsible:not(.mw-made-collapsible) th:before,.mw-content-ltr .mw-collapsible:not(.mw-made-collapsible):before,.mw-content-rtl .mw-content-ltr .mw-collapsible:not(.mw-made-collapsible):before,.mw-content-ltr .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr .mw-collapsible-toggle{float:right} .mw-content-rtl .mw-collapsible:not(.mw-made-collapsible) th:before,.mw-content-ltr .mw-content-rtl .mw-collapsible:not(.mw-made-collapsible) th:before,.mw-content-rtl .mw-collapsible:not(.mw-made-collapsible):before,.mw-content-ltr .mw-content-rtl .mw-collapsible:not(.mw-made-collapsible):before,.mw-content-rtl .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl .mw-collapsible-toggle{float:left} li .mw-collapsible-toggle,.mw-content-ltr li .mw-collapsible-toggle,.mw-content-rtl li .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl li .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr li .mw-collapsible-toggle{float:none}ol.mw-collapsible:not(.mw-made-collapsible):before,ul.mw-collapsible:not(.mw-made-collapsible):before{float:none !important}
+.ve-activated .ve-init-mw-desktopArticleTarget-editableContent #toc,.ve-activated #siteNotice,.ve-activated .mw-indicators,.ve-activated #t-print,.ve-activated #t-permalink,.ve-activated #p-coll-print_export,.ve-activated #t-cite,.ve-deactivating .ve-ui-surface,.ve-active .ve-init-mw-desktopArticleTarget-editableContent,.ve-active .ve-init-mw-tempWikitextEditorWidget{display:none} .ve-activating .ve-ui-surface{height:0;padding:0 !important; overflow:hidden} .ve-loading #content > :not(.ve-init-mw-desktopArticleTarget-loading-overlay), .ve-activated .ve-init-mw-desktopArticleTarget-uneditableContent{pointer-events:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;opacity:0.5}.ve-activated #firstHeading{ -webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text}.ve-activated #catlinks{cursor:pointer}.ve-activated #catlinks a{opacity:1}.ve-activated #content{position:relative} .ve-init-mw-desktopArticleTarget-loading-overlay{position:absolute;top:1.25em;left:0;right:0;z-index:1;margin-top:-0.5em}.ve-init-mw-desktopArticleTarget-toolbarPlaceholder{transition:height 250ms ease;height:0; } .oo-ui-element-hidden{display:none !important; } .mw-editsection{white-space:nowrap; unicode-bidi:-moz-isolate;unicode-bidi:-webkit-isolate;unicode-bidi:isolate}.mw-editsection-divider{color:#54595d} .ve-init-mw-desktopArticleTarget-toolbarPlaceholder{border-bottom:1px solid #c8ccd1;box-shadow:0 1px 1px 0 rgba(0,0,0,0.1)}.ve-init-mw-desktopArticleTarget-toolbarPlaceholder-open{height:42px} .ve-init-mw-desktopArticleTarget-toolbar,.ve-init-mw-desktopArticleTarget-toolbarPlaceholder{font-size:0.875em; margin:-1.14em -1.14em 1.14em -1.14em; }@media screen and (min-width:982px){.ve-init-mw-desktopArticleTarget-toolbar,.ve-init-mw-desktopArticleTarget-toolbarPlaceholder{ margin:-1.43em -1.71em 1.43em -1.71em}}</style><style>
+.mw-collapsible-toggle{float:right;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}.mw-collapsible-toggle-default:before{content:'['}.mw-collapsible-toggle-default:after{content:']'}.mw-customtoggle,.mw-collapsible-toggle{cursor:pointer} caption .mw-collapsible-toggle,.mw-content-ltr caption .mw-collapsible-toggle,.mw-content-rtl caption .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr caption .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl caption .mw-collapsible-toggle{float:none}
+.mw-ui-icon{position:relative;line-height:1.5em;min-height:1.5em;min-width:1.5em}span.mw-ui-icon{display:inline-block}.mw-ui-icon.mw-ui-icon-element{text-indent:-999px;overflow:hidden;width:3.5em;min-width:3.5em;max-width:3.5em}.mw-ui-icon.mw-ui-icon-element:before{left:0;right:0;position:absolute;margin:0 1em}.mw-ui-icon.mw-ui-icon-element.mw-ui-icon-large{width:4.625em;min-width:4.625em;max-width:4.625em;line-height:4.625em;min-height:4.625em}.mw-ui-icon.mw-ui-icon-element.mw-ui-icon-large:before{min-height:4.625em}.mw-ui-icon.mw-ui-icon-before:before,.mw-ui-icon.mw-ui-icon-element:before{background-position:50% 50%;background-repeat:no-repeat;background-size:100% auto;float:left;display:block;min-height:1.5em;content:''}.mw-ui-icon.mw-ui-icon-before:before{position:relative;width:1.5em;margin-right:1em}.mw-ui-icon.mw-ui-icon-small:before{background-size:66.67% auto}
+.mw-ui-icon-popups-settings:before{background-image:url(/w/load.php?modules=ext.popups.images&image=popups-settings&format=rasterized&lang=en&skin=vector&version=11m8137);background-image:linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22%3E %3Cg fill=%22%2354595d%22%3E %3Cpath d=%22M10.112 4.554a5.334 5.334 0 1 0 0 10.668 5.334 5.334 0 0 0 0-10.668zm0 7.823a2.49 2.49 0 1 1 0-4.978 2.49 2.49 0 0 1 0 4.978z%22/%3E %3Cpath d=%22M11.4 5.303L11.05 3h-2.1L8.6 5.303a4.9 4.9 0 0 1 2.8 0zm-2.8 9.394L8.95 17h2.1l.35-2.303a4.9 4.9 0 0 1-2.8 0zm5.712-7.028l1.4-1.876L14.2 4.309l-1.876 1.4a4.9 4.9 0 0 1 1.981 1.981l.007-.021zm-8.624 4.662L4.309 14.2 5.8 15.691l1.876-1.4a4.9 4.9 0 0 1-1.981-1.981l-.007.021zm9.009-.931L17 11.05v-2.1l-2.303-.35a4.9 4.9 0 0 1 0 2.8zM5.303 8.6L3 8.95v2.1l2.303.35a4.9 4.9 0 0 1 0-2.8zm7.028 5.712l1.876 1.4 1.484-1.512-1.4-1.876a4.9 4.9 0 0 1-1.981 1.981l.021.007zM7.669 5.688L5.8 4.309 4.309 5.8l1.4 1.876a4.9 4.9 0 0 1 1.96-1.988z%22/%3E %3C/g%3E %3C/svg%3E")}.mw-ui-icon-popups-close:before{background-image:url(/w/load.php?modules=ext.popups.images&image=popups-close&format=rasterized&lang=en&skin=vector&version=11m8137);background-image:linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22%3E %3Cpath d=%22M3.636 2.222l14.142 14.142-1.414 1.414L2.222 3.636z%22/%3E %3Cpath d=%22M17.778 3.636L3.636 17.778l-1.414-1.414L16.364 2.222z%22/%3E %3C/svg%3E")}.mw-ui-icon-preview-generic:before{background-image:url(/w/load.php?modules=ext.popups.images&image=preview-generic&format=rasterized&lang=en&skin=vector&version=11m8137);background-image:linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2237%22 height=%2227%22 viewBox=%220 0 37 27%22%3E %3Cg fill=%22%23c8ccd1%22 fill-rule=%22evenodd%22%3E %3Cpath d=%22M5.475.7v20.075L0 26.25h31.025c3.102 0 5.475-2.372 5.475-5.475V.7H5.475zm20.44 4.562c1.277 0 2.19 1.095 2.19 2.19 0 1.096-.913 2.373-2.19 2.373-1.278 0-2.19-1.095-2.19-2.19s1.095-2.373 2.19-2.373zm-9.855 0c1.277 0 2.19 1.095 2.19 2.19 0 1.096-1.095 2.373-2.19 2.373s-2.19-1.095-2.19-2.19.913-2.373 2.19-2.373zm4.928 8.213c-7.153 0-8.415 7.012-8.415 7.012s2.805-1.403 8.415-1.403c5.61 0 8.414 1.403 8.414 1.403S28 13.475 20.988 13.475z%22/%3E %3C/g%3E %3C/svg%3E")}.mw-ui-icon-footer:before{background-image:url(/w/load.php?modules=ext.popups.images&image=footer&format=rasterized&lang=en&skin=vector&version=11m8137);background-image:linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 xmlns:xlink=%22http://www.w3.org/1999/xlink%22 width=%22230%22 height=%22179%22 viewBox=%220 0 230 179%22%3E %3Cdefs%3E %3Crect id=%22a%22 width=%22201%22 height=%2213%22 rx=%222%22/%3E %3Crect id=%22b%22 width=%22201%22 height=%22169%22 y=%2210%22 rx=%222%22/%3E %3Crect id=%22c%22 width=%2230%22 height=%222%22 x=%22135%22 y=%22158%22 rx=%221%22/%3E %3C/defs%3E %3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E %3Cg transform=%22matrix%281 0 0 -1 0 13%29%22%3E %3Cuse fill=%22%23f8f9fa%22 xlink:href=%22%23a%22/%3E %3Crect width=%22199%22 height=%2211%22 x=%221%22 y=%221%22 stroke=%22%23a2a9b1%22 stroke-width=%222%22 rx=%222%22/%3E %3C/g%3E %3Cuse fill=%22%23fff%22 xlink:href=%22%23b%22/%3E %3Crect width=%22199%22 height=%22167%22 x=%221%22 y=%2211%22 stroke=%22%23a2a9b1%22 stroke-width=%222%22 rx=%222%22/%3E %3Cg opacity=%22.4%22 fill=%22%2372777d%22 transform=%22translate%2867 35%29%22%3E %3Crect width=%2273%22 height=%222%22 y=%227%22 fill=%22%23c8ccd1%22 rx=%221%22/%3E %3Crect width=%2281%22 height=%222%22 y=%2231%22 rx=%221%22/%3E %3Crect width=%2232%22 height=%222%22 y=%2285%22 rx=%221%22/%3E %3Crect width=%2273%22 height=%222%22 x=%2235%22 y=%2285%22 rx=%221%22/%3E %3Crect width=%2217%22 height=%222%22 y=%2245%22 rx=%221%22/%3E %3Crect width=%2217%22 height=%222%22 x=%2291%22 y=%2245%22 rx=%221%22/%3E %3Crect width=%2268%22 height=%222%22 x=%2220%22 y=%2245%22 rx=%221%22/%3E %3Crect width=%2217%22 height=%222%22 y=%2278%22 rx=%221%22/%3E %3Crect width=%2237%22 height=%222%22 x=%2272%22 y=%2278%22 rx=%221%22/%3E %3Crect width=%2249%22 height=%222%22 x=%2220%22 y=%2278%22 rx=%221%22/%3E %3Crect width=%2224%22 height=%222%22 x=%2284%22 y=%2231%22 rx=%221%22 transform=%22matrix%28-1 0 0 1 192 0%29%22/%3E %3Crect width=%2281%22 height=%222%22 y=%2266%22 rx=%221%22/%3E %3Crect width=%2214%22 height=%222%22 x=%2254%22 y=%2224%22 rx=%221%22/%3E %3Crect width=%2237%22 height=%222%22 x=%2271%22 y=%2224%22 rx=%221%22/%3E %3Crect width=%2251%22 height=%222%22 y=%2224%22 rx=%221%22/%3E %3Crect width=%22108%22 height=%222%22 y=%2259%22 rx=%221%22/%3E %3Crect width=%22108%22 height=%222%22 y=%2252%22 rx=%221%22/%3E %3Crect width=%22108%22 height=%222%22 y=%2292%22 rx=%221%22/%3E %3Crect width=%22108%22 height=%222%22 y=%2238%22 rx=%221%22/%3E %3Crect width=%2251%22 height=%222%22 rx=%221%22/%3E %3C/g%3E %3Crect width=%2230%22 height=%222%22 x=%2267%22 y=%22158%22 fill=%22%2372777d%22 opacity=%22.4%22 rx=%221%22/%3E %3Crect width=%2230%22 height=%222%22 x=%2299%22 y=%22158%22 fill=%22%2372777d%22 opacity=%22.4%22 rx=%221%22/%3E %3Cuse fill=%22%2336c%22 xlink:href=%22%23c%22/%3E %3Crect width=%2233%22 height=%225%22 x=%22133.5%22 y=%22156.5%22 stroke=%22%23ffc057%22 stroke-opacity=%22.447%22 stroke-width=%223%22 rx=%222.5%22/%3E %3Ccircle cx=%2234%22 cy=%2249%22 r=%2219%22 fill=%22%23eaecf0%22/%3E %3Cg fill=%22%23a2a9b1%22 transform=%22translate%285 5%29%22%3E %3Ccircle cx=%221.5%22 cy=%221.5%22 r=%221.5%22/%3E %3Ccircle cx=%226%22 cy=%221.5%22 r=%221.5%22/%3E %3Ccircle cx=%2210.5%22 cy=%221.5%22 r=%221.5%22/%3E %3C/g%3E %3Cpath stroke=%22%23ff00af%22 d=%22M174.5 159.5h54.01%22 stroke-linecap=%22square%22/%3E %3C/g%3E %3C/svg%3E")}.mw-ui-icon-preview-disambiguation:before{background-image:url(/w/load.php?modules=ext.popups.images&image=preview-disambiguation&format=rasterized&lang=en&skin=vector&version=11m8137);background-image:linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22 viewBox=%222 2 20 20%22%3E %3Cg fill=%22%23c8ccd1%22%3E %3Cpath d=%22M11 12h4V7h-4v5zm-5 2h9v-1H6v1zm0 2h9v-1H6v1zm0 2h9v-1H6v1zm4-9H6v1h4V9zm0 2H6v1h4v-1zm0-4H6v1h4V7zM4 5h13v16H7c-1.7 0-3-1.3-3-3V5z%22/%3E %3Cpath d=%22M18 4v14h2V2H7v2%22/%3E %3C/g%3E %3C/svg%3E")}.mw-ui-icon-reference-generic:before{background-image:url(/w/load.php?modules=ext.popups.images&image=reference-generic&format=rasterized&lang=en&skin=vector&version=11m8137);background-image:linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22%3E %3Ctitle%3E reference %3C/title%3E %3Cpath d=%22M15 1v9l-2.78-2.78L9.44 10V1H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2z%22/%3E %3C/svg%3E")}.mw-ui-icon-reference-book:before{background-image:url(/w/load.php?modules=ext.popups.images&image=reference-book&format=rasterized&lang=en&skin=vector&version=11m8137);background-image:linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22%3E %3Ctitle%3E book %3C/title%3E %3Cpath d=%22M15 2a7.65 7.65 0 0 0-5 2 7.65 7.65 0 0 0-5-2H1v15h4a7.65 7.65 0 0 1 5 2 7.65 7.65 0 0 1 5-2h4V2zm2.5 13.5H14a4.38 4.38 0 0 0-3 1V5s1-1.5 4-1.5h2.5z%22/%3E %3Cpath d=%22M9 3.5h2v1H9z%22/%3E %3C/svg%3E")}.mw-ui-icon-reference-journal:before{background-image:url(/w/load.php?modules=ext.popups.images&image=reference-journal&format=rasterized&lang=en&skin=vector&version=11m8137);background-image:linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22%3E %3Ctitle%3E journal %3C/title%3E %3Cpath d=%22M2 1.5v17A1.5 1.5 0 0 0 3.5 20H5V0H3.5A1.5 1.5 0 0 0 2 1.5zM16 0H6v20h10a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm-3 8H8V7h5zm3-2H8V5h8z%22/%3E %3C/svg%3E")}.mw-ui-icon-reference-news:before{background-image:url(/w/load.php?modules=ext.popups.images&image=reference-news&format=rasterized&lang=en&skin=vector&version=11m8137);background-image:linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22%3E %3Ctitle%3E newspaper %3C/title%3E %3Cpath d=%22M18 2H5a2 2 0 0 0-2 2v12a1 1 0 0 1-1-1V5h-.5A1.5 1.5 0 0 0 0 6.5v10A1.5 1.5 0 0 0 1.5 18H18a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2zm-6 13H6v-1h6zm0-2H6v-1h6zm0-2H6v-1h6zm5 4h-4v-5h4zm0-7H6V4h11z%22/%3E %3C/svg%3E")}.mw-ui-icon-reference-web:before{background-image:url(/w/load.php?modules=ext.popups.images&image=reference-web&format=rasterized&lang=en&skin=vector&version=11m8137);background-image:linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2220%22 height=%2220%22 viewBox=%222 2 20 20%22%3E %3Ctitle%3E web %3C/title%3E %3Cpath d=%22M22.78 18.46L21 16V4H3v12l-1.757 2.463a.974.974 0 0 0-.157 1.043c.157.347.533.494.914.494h20c.382 0 .783-.148.94-.496a.976.976 0 0 0-.16-1.044zM4 18l1-2V6h14v10l1 2H4z%22/%3E %3Cpath d=%22M7 16h10V8H7v8zm2-2v-3h6v3H9z%22/%3E %3C/svg%3E")}</style><style>
+@-webkit-keyframes mwe-popups-fade-in-up{0%{opacity:0;-webkit-transform:translate(0,20px);-moz-transform:translate(0,20px);-ms-transform:translate(0,20px);transform:translate(0,20px)}100%{opacity:1;-webkit-transform:translate(0,0);-moz-transform:translate(0,0);-ms-transform:translate(0,0);transform:translate(0,0)}}@-moz-keyframes mwe-popups-fade-in-up{0%{opacity:0;-webkit-transform:translate(0,20px);-moz-transform:translate(0,20px);-ms-transform:translate(0,20px);transform:translate(0,20px)}100%{opacity:1;-webkit-transform:translate(0,0);-moz-transform:translate(0,0);-ms-transform:translate(0,0);transform:translate(0,0)}}@keyframes mwe-popups-fade-in-up{0%{opacity:0;-webkit-transform:translate(0,20px);-moz-transform:translate(0,20px);-ms-transform:translate(0,20px);transform:translate(0,20px)}100%{opacity:1;-webkit-transform:translate(0,0);-moz-transform:translate(0,0);-ms-transform:translate(0,0);transform:translate(0,0)}}@-webkit-keyframes mwe-popups-fade-in-down{0%{opacity:0;-webkit-transform:translate(0,-20px);-moz-transform:translate(0,-20px);-ms-transform:translate(0,-20px);transform:translate(0,-20px)}100%{opacity:1;-webkit-transform:translate(0,0);-moz-transform:translate(0,0);-ms-transform:translate(0,0);transform:translate(0,0)}}@-moz-keyframes mwe-popups-fade-in-down{0%{opacity:0;-webkit-transform:translate(0,-20px);-moz-transform:translate(0,-20px);-ms-transform:translate(0,-20px);transform:translate(0,-20px)}100%{opacity:1;-webkit-transform:translate(0,0);-moz-transform:translate(0,0);-ms-transform:translate(0,0);transform:translate(0,0)}}@keyframes mwe-popups-fade-in-down{0%{opacity:0;-webkit-transform:translate(0,-20px);-moz-transform:translate(0,-20px);-ms-transform:translate(0,-20px);transform:translate(0,-20px)}100%{opacity:1;-webkit-transform:translate(0,0);-moz-transform:translate(0,0);-ms-transform:translate(0,0);transform:translate(0,0)}}@-webkit-keyframes mwe-popups-fade-out-down{0%{opacity:1;-webkit-transform:translate(0,0);-moz-transform:translate(0,0);-ms-transform:translate(0,0);transform:translate(0,0)}100%{opacity:0;-webkit-transform:translate(0,20px);-moz-transform:translate(0,20px);-ms-transform:translate(0,20px);transform:translate(0,20px)}}@-moz-keyframes mwe-popups-fade-out-down{0%{opacity:1;-webkit-transform:translate(0,0);-moz-transform:translate(0,0);-ms-transform:translate(0,0);transform:translate(0,0)}100%{opacity:0;-webkit-transform:translate(0,20px);-moz-transform:translate(0,20px);-ms-transform:translate(0,20px);transform:translate(0,20px)}}@keyframes mwe-popups-fade-out-down{0%{opacity:1;-webkit-transform:translate(0,0);-moz-transform:translate(0,0);-ms-transform:translate(0,0);transform:translate(0,0)}100%{opacity:0;-webkit-transform:translate(0,20px);-moz-transform:translate(0,20px);-ms-transform:translate(0,20px);transform:translate(0,20px)}}@-webkit-keyframes mwe-popups-fade-out-up{0%{opacity:1;-webkit-transform:translate(0,0);-moz-transform:translate(0,0);-ms-transform:translate(0,0);transform:translate(0,0)}100%{opacity:0;-webkit-transform:translate(0,-20px);-moz-transform:translate(0,-20px);-ms-transform:translate(0,-20px);transform:translate(0,-20px)}}@-moz-keyframes mwe-popups-fade-out-up{0%{opacity:1;-webkit-transform:translate(0,0);-moz-transform:translate(0,0);-ms-transform:translate(0,0);transform:translate(0,0)}100%{opacity:0;-webkit-transform:translate(0,-20px);-moz-transform:translate(0,-20px);-ms-transform:translate(0,-20px);transform:translate(0,-20px)}}@keyframes mwe-popups-fade-out-up{0%{opacity:1;-webkit-transform:translate(0,0);-moz-transform:translate(0,0);-ms-transform:translate(0,0);transform:translate(0,0)}100%{opacity:0;-webkit-transform:translate(0,-20px);-moz-transform:translate(0,-20px);-ms-transform:translate(0,-20px);transform:translate(0,-20px)}}.mwe-popups-fade-in-up{-webkit-animation:mwe-popups-fade-in-up 0.2s ease forwards;-moz-animation:mwe-popups-fade-in-up 0.2s ease forwards;animation:mwe-popups-fade-in-up 0.2s ease forwards}.mwe-popups-fade-in-down{-webkit-animation:mwe-popups-fade-in-down 0.2s ease forwards;-moz-animation:mwe-popups-fade-in-down 0.2s ease forwards;animation:mwe-popups-fade-in-down 0.2s ease forwards}.mwe-popups-fade-out-down{-webkit-animation:mwe-popups-fade-out-down 0.2s ease forwards;-moz-animation:mwe-popups-fade-out-down 0.2s ease forwards;animation:mwe-popups-fade-out-down 0.2s ease forwards}.mwe-popups-fade-out-up{-webkit-animation:mwe-popups-fade-out-up 0.2s ease forwards;-moz-animation:mwe-popups-fade-out-up 0.2s ease forwards;animation:mwe-popups-fade-out-up 0.2s ease forwards}   #mwe-popups-settings{z-index:1000;background:#fff;width:420px;border:1px solid #a2a9b1;box-shadow:0 2px 2px 0 rgba(0,0,0,0.25);border-radius:2px;font-size:14px}#mwe-popups-settings header{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;border-bottom:1px solid #c8ccd1;position:relative;display:table;width:100%;padding:5px 7px 5px 0}#mwe-popups-settings header > div{display:table-cell;width:3.5em;vertical-align:middle;cursor:pointer}#mwe-popups-settings header h1{margin-bottom:0.6em;padding-top:0.5em;border:0;width:100%;font-family:sans-serif;font-size:18px;font-weight:bold;text-align:center}#mwe-popups-settings .mwe-ui-icon-popups-close{opacity:0.87;-webkit-transition:opacity 100ms;-moz-transition:opacity 100ms;transition:opacity 100ms}#mwe-popups-settings .mwe-ui-icon-popups-close:hover{opacity:0.73}#mwe-popups-settings .mwe-ui-icon-popups-close:active{opacity:1}#mwe-popups-settings main{display:block;width:350px;padding:32px 0 24px;margin:0 auto}#mwe-popups-settings main p{color:#54595d;font-size:17px;margin:16px 0 0}#mwe-popups-settings main p:first-child{margin-top:0}#mwe-popups-settings main form img,#mwe-popups-settings main form input,#mwe-popups-settings main form label{vertical-align:top}#mwe-popups-settings main form img{margin-right:60px}#mwe-popups-settings main form input{display:inline-block;margin:0 10px 0 0;padding:0}#mwe-popups-settings main form label{font-size:13px;display:inline-block;line-height:16px;width:300px}#mwe-popups-settings main form label > span{color:#000;font-size:18px;font-weight:bold;display:block;margin-bottom:5px;line-height:18px}.mwe-popups-settings-help{font-size:13px;font-weight:800;margin:40px;position:relative}.mwe-popups-settings-help .mw-ui-icon:before,.mwe-popups-settings-help .mw-ui-icon{height:140px;width:180px;max-width:none;margin:0}.mwe-popups-settings-help p{left:180px;bottom:20px;position:absolute}.mwe-popups{background:#fff;position:absolute;z-index:110;-webkit-box-shadow:0 30px 90px -20px rgba(0,0,0,0.3),0 0 1px #a2a9b1;box-shadow:0 30px 90px -20px rgba(0,0,0,0.3),0 0 1px #a2a9b1;padding:0;display:none;font-size:14px;line-height:20px;min-width:300px;border-radius:2px; }.mwe-popups .mw-ui-icon{font-size:16px}.mwe-popups .mw-ui-icon-preview-disambiguation,.mwe-popups .mw-ui-icon-preview-generic{margin:21px 0 8px 0}.mwe-popups .mwe-popups-container{color:#222222;margin-top:-9px;padding-top:9px;text-decoration:none}.mwe-popups .mwe-popups-container footer{padding:16px;margin:0;font-size:10px;position:absolute;bottom:0;left:0}.mwe-popups .mwe-popups-extract{margin:16px;display:block;color:#222222;text-decoration:none;position:relative;   }.mwe-popups .mwe-popups-extract:hover{text-decoration:none}.mwe-popups .mwe-popups-extract:after{content:' ';position:absolute;bottom:0;width:25%;height:20px;background-color:transparent}.mwe-popups .mwe-popups-extract[dir='ltr']:after{ right:0; background-image:-webkit-linear-gradient(to right,rgba(255,255,255,0),#ffffff 50%); background-image:-moz-linear-gradient(to right,rgba(255,255,255,0),#ffffff 50%); background-image:-o-linear-gradient(to right,rgba(255,255,255,0),#ffffff 50%); background-image:linear-gradient(to right,rgba(255,255,255,0),#ffffff 50%)}.mwe-popups .mwe-popups-extract[dir='rtl']:after{ left:0; background-image:-webkit-linear-gradient(to left,rgba(255,255,255,0),#ffffff 50%); background-image:-moz-linear-gradient(to left,rgba(255,255,255,0),#ffffff 50%); background-image:-o-linear-gradient(to left,rgba(255,255,255,0),#ffffff 50%); background-image:linear-gradient(to left,rgba(255,255,255,0),#ffffff 50%)}.mwe-popups .mwe-popups-extract p{margin:0}.mwe-popups .mwe-popups-extract ul,.mwe-popups .mwe-popups-extract ol,.mwe-popups .mwe-popups-extract li,.mwe-popups .mwe-popups-extract dl,.mwe-popups .mwe-popups-extract dd,.mwe-popups .mwe-popups-extract dt{margin-top:0;margin-bottom:0}.mwe-popups svg{overflow:hidden}.mwe-popups.mwe-popups-is-tall{width:450px}.mwe-popups.mwe-popups-is-tall > div > a > svg{vertical-align:middle}.mwe-popups.mwe-popups-is-tall .mwe-popups-extract{width:215px;height:180px;overflow:hidden;float:left}.mwe-popups.mwe-popups-is-tall footer{width:215px;left:0}.mwe-popups.mwe-popups-is-not-tall{width:320px}.mwe-popups.mwe-popups-is-not-tall .mwe-popups-extract{min-height:40px;max-height:140px;overflow:hidden;margin-bottom:47px;padding-bottom:0}.mwe-popups.mwe-popups-is-not-tall footer{width:290px}.mwe-popups.mwe-popups-type-generic .mwe-popups-extract,.mwe-popups.mwe-popups-type-disambiguation .mwe-popups-extract{min-height:auto;padding-top:4px;margin-bottom:60px;margin-top:0}.mwe-popups.mwe-popups-type-generic .mwe-popups-read-link,.mwe-popups.mwe-popups-type-disambiguation .mwe-popups-read-link{font-weight:bold;font-size:12px}.mwe-popups.mwe-popups-type-generic .mwe-popups-extract:hover + footer .mwe-popups-read-link,.mwe-popups.mwe-popups-type-disambiguation .mwe-popups-extract:hover + footer .mwe-popups-read-link{text-decoration:underline}.mwe-popups.mwe-popups-no-image-pointer:before{content:'';position:absolute;border:8px solid transparent;border-top:0;border-bottom:8px solid #a2a9b1;top:-8px;left:10px}.mwe-popups.mwe-popups-no-image-pointer:after{content:'';position:absolute;border:11px solid transparent;border-top:0;border-bottom:11px solid #ffffff;top:-7px;left:7px}.mwe-popups.flipped-x.mwe-popups-no-image-pointer:before{left:auto;right:10px}.mwe-popups.flipped-x.mwe-popups-no-image-pointer:after{left:auto;right:7px}.mwe-popups.mwe-popups-image-pointer:before{content:'';position:absolute;border:9px solid transparent;border-top:0;border-bottom:9px solid #a2a9b1;top:-9px;left:9px;z-index:111}.mwe-popups.mwe-popups-image-pointer:after{content:'';position:absolute;border:12px solid transparent;border-top:0;border-bottom:12px solid #ffffff;top:-8px;left:6px;z-index:112}.mwe-popups.mwe-popups-image-pointer.flipped-x:before{content:'';position:absolute;border:9px solid transparent;border-top:0;border-bottom:9px solid #a2a9b1;top:-9px;left:293px}.mwe-popups.mwe-popups-image-pointer.flipped-x:after{content:'';position:absolute;border:12px solid transparent;border-top:0;border-bottom:12px solid #ffffff;top:-8px;left:290px}.mwe-popups.mwe-popups-image-pointer .mwe-popups-extract{padding-top:16px;margin-top:200px}.mwe-popups.mwe-popups-image-pointer > div > a > svg{margin-top:-8px;position:absolute;z-index:113;left:0}.mwe-popups.flipped-x.mwe-popups-is-tall{min-height:242px}.mwe-popups.flipped-x.mwe-popups-is-tall:before{content:'';position:absolute;border:9px solid transparent;border-top:0;border-bottom:9px solid #a2a9b1;top:-9px;left:420px;z-index:111}.mwe-popups.flipped-x.mwe-popups-is-tall > div > a > svg{margin:0;margin-top:-8px;margin-bottom:-7px;position:absolute;z-index:113;right:0}.mwe-popups.flipped-x-y:before{content:'';position:absolute;border:9px solid transparent;border-bottom:0;border-top:9px solid #a2a9b1;bottom:-9px;left:293px;z-index:111}.mwe-popups.flipped-x-y:after{content:'';position:absolute;border:12px solid transparent;border-bottom:0;border-top:12px solid #ffffff;bottom:-8px;left:290px;z-index:112}.mwe-popups.flipped-x-y.mwe-popups-is-tall{min-height:242px}.mwe-popups.flipped-x-y.mwe-popups-is-tall:before{content:'';position:absolute;border:9px solid transparent;border-bottom:0;border-top:9px solid #a2a9b1;bottom:-9px;left:420px}.mwe-popups.flipped-x-y.mwe-popups-is-tall:after{content:'';position:absolute;border:12px solid transparent;border-bottom:0;border-top:12px solid #ffffff;bottom:-8px;left:417px}.mwe-popups.flipped-x-y.mwe-popups-is-tall > div > a > svg{margin:0;margin-bottom:-9px;position:absolute;z-index:113;right:0}.mwe-popups.flipped-y:before{content:'';position:absolute;border:8px solid transparent;border-bottom:0;border-top:8px solid #a2a9b1;bottom:-8px;left:10px}.mwe-popups.flipped-y:after{content:'';position:absolute;border:11px solid transparent;border-bottom:0;border-top:11px solid #ffffff;bottom:-7px;left:7px}.mwe-popups-is-tall polyline{-webkit-transform:translate(0,0);-moz-transform:translate(0,0);-ms-transform:translate(0,0);transform:translate(0,0)}.mwe-popups-is-tall.flipped-x-y polyline{-webkit-transform:translate(0,-8px);-moz-transform:translate(0,-8px);-ms-transform:translate(0,-8px);transform:translate(0,-8px)}.mwe-popups-is-tall.flipped-x polyline{-webkit-transform:translate(0,8px);-moz-transform:translate(0,8px);-ms-transform:translate(0,8px);transform:translate(0,8px)}.rtl .mwe-popups-is-tall polyline{-webkit-transform:translate(-100%,0);-moz-transform:translate(-100%,0);-ms-transform:translate(-100%,0);transform:translate(-100%,0)}.rtl .mwe-popups-is-tall.flipped-x-y polyline{-webkit-transform:translate(-100%,-8px);-moz-transform:translate(-100%,-8px);-ms-transform:translate(-100%,-8px);transform:translate(-100%,-8px)}.rtl .mwe-popups-is-tall.flipped-x polyline{-webkit-transform:translate(-100%,8px);-moz-transform:translate(-100%,8px);-ms-transform:translate(-100%,8px);transform:translate(-100%,8px)}.mwe-popups-settings-icon{display:block;overflow:hidden;font-size:16px;width:1.5em;height:1.5em;padding:3px;float:right;margin:4px 4px 2px 4px;text-indent:-1em;border-radius:2px}.mwe-popups-settings-icon:hover{background-color:#eaecf0}.mwe-popups-settings-icon:active{background-color:#c8ccd1}.mwe-popups .mwe-popups-title{display:block;font-weight:bold;margin:0 16px}.mwe-popups.mwe-popups-type-reference .mwe-popups-title{margin-top:16px}.mwe-popups.mwe-popups-type-reference .mwe-popups-title .mw-ui-icon{vertical-align:middle}.mwe-popups.mwe-popups-type-reference .mwe-popups-title .mw-ui-icon.mw-ui-icon-element{min-width:1.5em;width:1.5em}.mwe-popups.mwe-popups-type-reference .mwe-popups-title .mw-ui-icon.mw-ui-icon-element:before{margin:0}.mwe-popups.mwe-popups-type-reference .mwe-popups-title .mw-ui-icon.mw-ui-icon-reference-generic{ margin-left:-2px}.mwe-popups.mwe-popups-type-reference .mwe-popups-extract{margin-bottom:55px;max-height:100px;min-height:20px}.mwe-popups.mwe-popups-type-reference .mwe-popups-extract:after{width:100%;bottom:-20px;background-color:transparent;background-image:-webkit-linear-gradient(top,rgba(255,255,255,0),#ffffff);background-image:-moz-linear-gradient(top,rgba(255,255,255,0),#ffffff);background-image:linear-gradient(rgba(255,255,255,0),#ffffff);-webkit-transition:bottom 250ms ease;-moz-transition:bottom 250ms ease;transition:bottom 250ms ease}.mwe-popups.mwe-popups-type-reference .mwe-popups-extract.mwe-popups-fade-out:after{bottom:0}.mwe-popups.mwe-popups-type-reference .mwe-popups-extract .mw-parser-output{max-height:inherit;overflow:auto}.mwe-popups.mwe-popups-type-reference .mwe-popups-read-link{font-size:12px}.mwe-popups-overlay{background-color:rgba(255,255,255,0.9);z-index:999;position:fixed;height:100%;width:100%;top:0;bottom:0;left:0;right:0;display:flex;justify-content:center;align-items:center}#mwe-popups-svg{position:absolute;top:-1000px}</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="QR%20algorithm%20-%20Wikipedia_files/load_003.css">
+<link rel="stylesheet" href="QR%20algorithm%20-%20Wikipedia_files/load_002.css">
+<meta name="generator" content="MediaWiki 1.33.0-wmf.22">
+<meta name="referrer" content="origin">
+<meta name="referrer" content="origin-when-crossorigin">
+<meta name="referrer" content="origin-when-cross-origin">
+<link rel="alternate" href="android-app://org.wikipedia/http/en.m.wikipedia.org/wiki/QR_algorithm">
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=QR_algorithm&amp;action=edit">
+<link rel="edit" title="Edit this page" href="https://en.wikipedia.org/w/index.php?title=QR_algorithm&amp;action=edit">
+<link rel="apple-touch-icon" href="https://en.wikipedia.org/static/apple-touch/wikipedia.png">
+<link rel="shortcut icon" href="https://en.wikipedia.org/static/favicon/wikipedia.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikipedia.org/w/api.php?action=rsd">
+<link rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">
+<link rel="canonical" href="https://en.wikipedia.org/wiki/QR_algorithm">
+<link rel="dns-prefetch" href="https://login.wikimedia.org/">
+<link rel="dns-prefetch" href="https://meta.wikimedia.org/">
+<!--[if lt IE 9]><script src="/w/load.php?lang=en&amp;modules=html5shiv&amp;only=scripts&amp;skin=vector&amp;sync=1"></script><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject mw-editable page-QR_algorithm rootpage-QR_algorithm skin-vector action-view">
+<div id="mw-page-base" class="noprint"></div>
+<div id="mw-head-base" class="noprint"></div>
+<div id="content" class="mw-body" role="main">
+	<a id="top"></a>
+	<div id="siteNotice" class="mw-body-content"><div id="centralNotice"></div><!-- CentralNotice --></div>
+	<div class="mw-indicators mw-body-content">
+</div>
+
+	<h1 id="firstHeading" class="firstHeading" lang="">QR algorithm</h1>
+	
+	<div id="bodyContent" class="mw-body-content">
+		<div id="siteSub" class="noprint">From Wikipedia, the free encyclopedia</div>
+		<div id="contentSub"></div>
+		
+		
+		
+		<div id="jump-to-nav"></div>
+		<a class="mw-jump-link" href="#mw-head">Jump to navigation</a>
+		<a class="mw-jump-link" href="#p-search">Jump to search</a>
+		<div id="mw-content-text" dir="ltr" class="mw-content-ltr" lang="en"><div class="mw-parser-output"><p>In <a href="https://en.wikipedia.org/wiki/Numerical_linear_algebra" title="Numerical linear algebra">numerical linear algebra</a>, the <b>QR algorithm</b> is an <a href="https://en.wikipedia.org/wiki/Eigenvalue_algorithm" title="Eigenvalue algorithm">eigenvalue algorithm</a>: that is, a procedure to calculate the <a href="https://en.wikipedia.org/wiki/Eigenvalues_and_eigenvectors" title="Eigenvalues and eigenvectors">eigenvalues and eigenvectors</a> of a <a href="https://en.wikipedia.org/wiki/Matrix_(mathematics)" title="Matrix (mathematics)">matrix</a>. The QR algorithm was developed in the late 1950s by <a href="https://en.wikipedia.org/wiki/John_G._F._Francis" title="John G. F. Francis">John G. F. Francis</a> and by <a href="https://en.wikipedia.org/wiki/Vera_N._Kublanovskaya" class="mw-redirect" title="Vera N. Kublanovskaya">Vera N. Kublanovskaya</a>, working independently.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup><sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[2]</a></sup><sup id="cite_ref-3" class="reference"><a href="#cite_note-3">[3]</a></sup>  The basic idea is to perform a <a href="https://en.wikipedia.org/wiki/QR_decomposition" title="QR decomposition">QR decomposition</a>, writing the matrix as a product of an <a href="https://en.wikipedia.org/wiki/Orthogonal_matrix" title="Orthogonal matrix">orthogonal matrix</a> and an upper <a href="https://en.wikipedia.org/wiki/Triangular_matrix" title="Triangular matrix">triangular matrix</a>, multiply the factors in the reverse order, and iterate.
+</p>
+<div id="toc" class="toc"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none"><div class="toctitle" dir="ltr" lang="en"><h2>Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#The_practical_QR_algorithm"><span class="tocnumber">1</span> <span class="toctext">The practical QR algorithm</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#The_implicit_QR_algorithm"><span class="tocnumber">2</span> <span class="toctext">The implicit QR algorithm</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Renaming_proposal"><span class="tocnumber">2.1</span> <span class="toctext">Renaming proposal</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#Interpretation_and_convergence"><span class="tocnumber">3</span> <span class="toctext">Interpretation and convergence</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#History"><span class="tocnumber">4</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Other_variants"><span class="tocnumber">5</span> <span class="toctext">Other variants</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#External_links"><span class="tocnumber">7</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="The_practical_QR_algorithm">The practical QR algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=QR_algorithm&amp;action=edit&amp;section=1" title="Edit section: The practical QR algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Formally, let <i>A</i> be a real matrix of which we want to compute the eigenvalues, and let <i>A</i><sub>0</sub>:=<i>A</i>. At the <i>k</i>-th step (starting with <i>k</i> = 0), we compute the <a href="https://en.wikipedia.org/wiki/QR_decomposition" title="QR decomposition">QR decomposition</a> <i>A</i><sub><i>k</i></sub>=<i>Q</i><sub><i>k</i></sub><i>R</i><sub><i>k</i></sub> where <i>Q</i><sub><i>k</i></sub> is an <a href="https://en.wikipedia.org/wiki/Orthogonal_matrix" title="Orthogonal matrix">orthogonal matrix</a> (i.e., <i>Q</i><sup><i>T</i></sup> = <i>Q</i><sup>−1</sup>) and <i>R</i><sub><i>k</i></sub> is an upper triangular matrix. We then form <i>A</i><sub><i>k</i>+1</sub> = <i>R</i><sub><i>k</i></sub><i>Q</i><sub><i>k</i></sub>. Note that
+</p>
+<dl><dd><span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle A_{k+1}=R_{k}Q_{k}=Q_{k}^{-1}Q_{k}R_{k}Q_{k}=Q_{k}^{-1}A_{k}Q_{k}=Q_{k}^{\mathsf {T}}A_{k}Q_{k},}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msub>
+          <mi>R</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msubsup>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>−<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msubsup>
+        <msub>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>R</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msubsup>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mo>−<!-- − --></mo>
+            <mn>1</mn>
+          </mrow>
+        </msubsup>
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <msubsup>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="sans-serif">T</mi>
+            </mrow>
+          </mrow>
+        </msubsup>
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+        <msub>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+        <mo>,</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle A_{k+1}=R_{k}Q_{k}=Q_{k}^{-1}Q_{k}R_{k}Q_{k}=Q_{k}^{-1}A_{k}Q_{k}=Q_{k}^{\mathsf {T}}A_{k}Q_{k},}</annotation>
+  </semantics>
+</math></span><img src="QR%20algorithm%20-%20Wikipedia_files/ecfc8d27650720bae953a17665f9e4516396223f.svg" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.005ex; width:55.51ex; height:3.343ex;" alt="{\displaystyle A_{k+1}=R_{k}Q_{k}=Q_{k}^{-1}Q_{k}R_{k}Q_{k}=Q_{k}^{-1}A_{k}Q_{k}=Q_{k}^{\mathsf {T}}A_{k}Q_{k},}"></span></dd></dl>
+<p>so all the <i>A</i><sub><i>k</i></sub> are <a href="https://en.wikipedia.org/wiki/Similar_matrix" class="mw-redirect" title="Similar matrix">similar</a> and hence they have the same eigenvalues. The algorithm is <a href="https://en.wikipedia.org/wiki/Numerical_stability" title="Numerical stability">numerically stable</a> because it proceeds by <i>orthogonal</i> similarity transforms.
+</p><p>Under certain conditions,<sup id="cite_ref-golubvanloan_4-0" class="reference"><a href="#cite_note-golubvanloan-4">[4]</a></sup> the matrices <i>A</i><sub><i>k</i></sub> converge to a triangular matrix, the <a href="https://en.wikipedia.org/wiki/Schur_form" class="mw-redirect" title="Schur form">Schur form</a> of <i>A</i>.
+ The eigenvalues of a triangular matrix are listed on the diagonal, and 
+the eigenvalue problem is solved. In testing for convergence it is 
+impractical to require exact zeros, but the <a href="https://en.wikipedia.org/wiki/Gershgorin_circle_theorem" title="Gershgorin circle theorem">Gershgorin circle theorem</a> provides a bound on the error.
+</p><p>In this crude form the iterations are relatively expensive. This can be mitigated by first bringing the matrix <i>A</i> to upper <a href="https://en.wikipedia.org/wiki/Hessenberg_form" class="mw-redirect" title="Hessenberg form">Hessenberg form</a> (which costs <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle {\begin{matrix}{\frac {10}{3}}\end{matrix}}n^{3}+{\mathcal {O}}(n^{2})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtable rowspacing="4pt" columnspacing="1em">
+            <mtr>
+              <mtd>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mfrac>
+                    <mn>10</mn>
+                    <mn>3</mn>
+                  </mfrac>
+                </mrow>
+              </mtd>
+            </mtr>
+          </mtable>
+        </mrow>
+        <msup>
+          <mi>n</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>3</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">O</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>n</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\begin{matrix}{\frac {10}{3}}\end{matrix}}n^{3}+{\mathcal {O}}(n^{2})}</annotation>
+  </semantics>
+</math></span><img src="QR%20algorithm%20-%20Wikipedia_files/5c8b9dc20d1051386364bd6515fe8cdb66d1c7ef.svg" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -1.004ex; margin-bottom: -0.334ex; width:14.629ex; height:3.676ex;" alt="{\displaystyle {\begin{matrix}{\frac {10}{3}}\end{matrix}}n^{3}+{\mathcal {O}}(n^{2})}"></span> arithmetic operations using a technique based on <a href="https://en.wikipedia.org/wiki/Householder_transformation" title="Householder transformation">Householder reduction</a>), with a finite sequence of orthogonal similarity transforms, somewhat like a two-sided QR decomposition.<sup id="cite_ref-Demmel_5-0" class="reference"><a href="#cite_note-Demmel-5">[5]</a></sup><sup id="cite_ref-Trefethen_6-0" class="reference"><a href="#cite_note-Trefethen-6">[6]</a></sup>
+  (For QR decomposition, the Householder reflectors are multiplied only 
+on the left, but for the Hessenberg case they are multiplied on both 
+left and right.) Determining the QR decomposition of an upper Hessenberg
+ matrix costs <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle 6n^{2}+{\mathcal {O}}(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>6</mn>
+        <msup>
+          <mi>n</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">O</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 6n^{2}+{\mathcal {O}}(n)}</annotation>
+  </semantics>
+</math></span><img src="QR%20algorithm%20-%20Wikipedia_files/7275a2fd1d414c4cd0629f34884b60ad6d184c27.svg" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:11.506ex; height:3.176ex;" alt="{\displaystyle 6n^{2}+{\mathcal {O}}(n)}"></span>
+ arithmetic operations.  Moreover, because the Hessenberg form is 
+already nearly upper-triangular (it has just one nonzero entry below 
+each diagonal), using it as a starting point reduces the number of steps
+ required for convergence of the QR algorithm.
+</p><p>If the original matrix is <a href="https://en.wikipedia.org/wiki/Symmetric_matrix" title="Symmetric matrix">symmetric</a>, then the upper Hessenberg matrix is also symmetric and thus <a href="https://en.wikipedia.org/wiki/Tridiagonal_matrix" title="Tridiagonal matrix">tridiagonal</a>, and so are all the <i>A</i><sub><i>k</i></sub>. This procedure costs <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle {\begin{matrix}{\frac {4}{3}}\end{matrix}}n^{3}+{\mathcal {O}}(n^{2})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mtable rowspacing="4pt" columnspacing="1em">
+            <mtr>
+              <mtd>
+                <mrow class="MJX-TeXAtom-ORD">
+                  <mfrac>
+                    <mn>4</mn>
+                    <mn>3</mn>
+                  </mfrac>
+                </mrow>
+              </mtd>
+            </mtr>
+          </mtable>
+        </mrow>
+        <msup>
+          <mi>n</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>3</mn>
+          </mrow>
+        </msup>
+        <mo>+</mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">O</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <msup>
+          <mi>n</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>2</mn>
+          </mrow>
+        </msup>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\begin{matrix}{\frac {4}{3}}\end{matrix}}n^{3}+{\mathcal {O}}(n^{2})}</annotation>
+  </semantics>
+</math></span><img src="QR%20algorithm%20-%20Wikipedia_files/d72f02b539b88f86163922966e2f2b0a5750d9b8.svg" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.995ex; margin-bottom: -0.177ex; width:13.807ex; height:3.509ex;" alt="{\displaystyle {\begin{matrix}{\frac {4}{3}}\end{matrix}}n^{3}+{\mathcal {O}}(n^{2})}"></span> arithmetic operations using  a technique based on Householder reduction.<sup id="cite_ref-Demmel_5-1" class="reference"><a href="#cite_note-Demmel-5">[5]</a></sup><sup id="cite_ref-Trefethen_6-1" class="reference"><a href="#cite_note-Trefethen-6">[6]</a></sup> Determining the QR decomposition of a symmetric tridiagonal matrix costs <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle {\mathcal {O}}(n)}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi class="MJX-tex-caligraphic" mathvariant="script">O</mi>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">(</mo>
+        <mi>n</mi>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\mathcal {O}}(n)}</annotation>
+  </semantics>
+</math></span><img src="QR%20algorithm%20-%20Wikipedia_files/3c7bbe0124ae81792773344bc8709fc2f9c9910d.svg" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; width:5.054ex; height:2.843ex;" alt="{\mathcal {O}}(n)"></span> operations.<sup id="cite_ref-7" class="reference"><a href="#cite_note-7">[7]</a></sup>
+</p><p>The rate of convergence depends on the separation between 
+eigenvalues, so a practical algorithm will use shifts, either explicit 
+or implicit, to increase separation and accelerate convergence. A 
+typical symmetric QR algorithm isolates each eigenvalue (then reduces 
+the size of the matrix) with only one or two iterations, making it 
+efficient as well as robust.<sup class="noprint Inline-Template" style="margin-left:0.1em; white-space:nowrap;">[<i><a href="https://en.wikipedia.org/wiki/Wikipedia:Please_clarify" title="Wikipedia:Please clarify"><span title="The text near this tag may need clarification or removal of jargon. (June 2012)">clarification needed</span></a></i>]</sup>
+</p>
+<h2><span class="mw-headline" id="The_implicit_QR_algorithm">The implicit QR algorithm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=QR_algorithm&amp;action=edit&amp;section=2" title="Edit section: The implicit QR algorithm">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In modern computational practice, the QR algorithm is performed in an
+ implicit version which makes the use of multiple shifts easier to 
+introduce.<sup id="cite_ref-golubvanloan_4-1" class="reference"><a href="#cite_note-golubvanloan-4">[4]</a></sup> The matrix is first brought to upper Hessenberg form <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle A_{0}=QAQ^{\mathsf {T}}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>0</mn>
+          </mrow>
+        </msub>
+        <mo>=</mo>
+        <mi>Q</mi>
+        <mi>A</mi>
+        <msup>
+          <mi>Q</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mrow class="MJX-TeXAtom-ORD">
+              <mi mathvariant="sans-serif">T</mi>
+            </mrow>
+          </mrow>
+        </msup>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle A_{0}=QAQ^{\mathsf {T}}}</annotation>
+  </semantics>
+</math></span><img src="QR%20algorithm%20-%20Wikipedia_files/7face05cf3e6f28cc6841e470615432a99d74b87.svg" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:12.667ex; height:3.009ex;" alt="{\displaystyle A_{0}=QAQ^{\mathsf {T}}}"></span> as in the explicit version; then, at each step, the first column of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle A_{k}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle A_{k}}</annotation>
+  </semantics>
+</math></span><img src="QR%20algorithm%20-%20Wikipedia_files/72095229db907e86eb4343cb4736429fcc56507d.svg" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.832ex; height:2.509ex;" alt="A_{k}"></span> is transformed via a small-size Householder similarity transformation to the first column of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle p(A_{k})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>p</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle p(A_{k})}</annotation>
+  </semantics>
+</math></span><img src="QR%20algorithm%20-%20Wikipedia_files/37aef2ff28c90a89f5202d88cf96d6a580e64fa7.svg" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; margin-left: -0.089ex; width:5.9ex; height:2.843ex;" alt="p(A_{k})"></span> (or <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle p(A_{k})e_{1}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>p</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+        <msub>
+          <mi>e</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mn>1</mn>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle p(A_{k})e_{1}}</annotation>
+  </semantics>
+</math></span><img src="QR%20algorithm%20-%20Wikipedia_files/8b0fa832202096d98b468b751be0bbfffd407ce1.svg" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; margin-left: -0.089ex; width:8.038ex; height:2.843ex;" alt="p(A_{k})e_{1}"></span>), where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle p(A_{k})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>p</mi>
+        <mo stretchy="false">(</mo>
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle p(A_{k})}</annotation>
+  </semantics>
+</math></span><img src="QR%20algorithm%20-%20Wikipedia_files/37aef2ff28c90a89f5202d88cf96d6a580e64fa7.svg" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; margin-left: -0.089ex; width:5.9ex; height:2.843ex;" alt="p(A_{k})"></span>, of degree <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle r}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>r</mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r}</annotation>
+  </semantics>
+</math></span><img src="QR%20algorithm%20-%20Wikipedia_files/0d1ecb613aa2984f0576f70f86650b7c2a132538.svg" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.049ex; height:1.676ex;" alt="r"></span>, is the polynomial that defines the shifting strategy (often <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle p(x)=(x-\lambda )(x-{\bar {\lambda }})}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>p</mi>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo stretchy="false">)</mo>
+        <mo>=</mo>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>−<!-- − --></mo>
+        <mi>λ<!-- λ --></mi>
+        <mo stretchy="false">)</mo>
+        <mo stretchy="false">(</mo>
+        <mi>x</mi>
+        <mo>−<!-- − --></mo>
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mover>
+              <mi>λ<!-- λ --></mi>
+              <mo stretchy="false">¯<!-- ¯ --></mo>
+            </mover>
+          </mrow>
+        </mrow>
+        <mo stretchy="false">)</mo>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle p(x)=(x-\lambda )(x-{\bar {\lambda }})}</annotation>
+  </semantics>
+</math></span><img src="QR%20algorithm%20-%20Wikipedia_files/3769d71fce2a9de77eb502a4df7ef511927d5b06.svg" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.838ex; margin-left: -0.089ex; width:22.165ex; height:3.009ex;" alt="p(x)=(x-\lambda )(x-{\bar  \lambda })"></span>, where <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle \lambda }">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>λ<!-- λ --></mi>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle \lambda }</annotation>
+  </semantics>
+</math></span><img src="QR%20algorithm%20-%20Wikipedia_files/b43d0ea3c9c025af1be9128e62a18fa74bedda2a.svg" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.355ex; height:2.176ex;" alt="\lambda "></span> and <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle {\bar {\lambda }}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mrow class="MJX-TeXAtom-ORD">
+          <mrow class="MJX-TeXAtom-ORD">
+            <mover>
+              <mi>λ<!-- λ --></mi>
+              <mo stretchy="false">¯<!-- ¯ --></mo>
+            </mover>
+          </mrow>
+        </mrow>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle {\bar {\lambda }}}</annotation>
+  </semantics>
+</math></span><img src="QR%20algorithm%20-%20Wikipedia_files/6b40caf100572a9cc91ebf6ff7079ca8dd9eeb59.svg" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:1.355ex; height:2.509ex;" alt="{\bar  \lambda }"></span> are the two eigenvalues of the trailing <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle 2\times 2}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mn>2</mn>
+        <mo>×<!-- × --></mo>
+        <mn>2</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle 2\times 2}</annotation>
+  </semantics>
+</math></span><img src="QR%20algorithm%20-%20Wikipedia_files/f8a0e3400ffb97d67c00267ed50cddfe824cbe80.svg" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:5.165ex; height:2.176ex;" alt="2\times 2"></span> principal submatrix of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle A_{k}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle A_{k}}</annotation>
+  </semantics>
+</math></span><img src="QR%20algorithm%20-%20Wikipedia_files/72095229db907e86eb4343cb4736429fcc56507d.svg" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.832ex; height:2.509ex;" alt="A_{k}"></span>, the so-called <i>implicit double-shift</i>). Then successive Householder transformations of size <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle r+1}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <mi>r</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle r+1}</annotation>
+  </semantics>
+</math></span><img src="QR%20algorithm%20-%20Wikipedia_files/7bf1b7e1e8ed2801660c299494ed10e6f18f790d.svg" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.505ex; width:5.052ex; height:2.343ex;" alt="r+1"></span> are performed in order to return the working matrix <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle A_{k}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle A_{k}}</annotation>
+  </semantics>
+</math></span><img src="QR%20algorithm%20-%20Wikipedia_files/72095229db907e86eb4343cb4736429fcc56507d.svg" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.832ex; height:2.509ex;" alt="A_{k}"></span> to upper Hessenberg form. This operation is known as <i>bulge chasing</i>,
+ due to the peculiar shape of the non-zero entries of the matrix along 
+the steps of the algorithm. As in the first version,  deflation is 
+performed as soon as one of the sub-diagonal entries of <span class="mwe-math-element"><span class="mwe-math-mathml-inline mwe-math-mathml-a11y" style="display: none;"><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="{\displaystyle A_{k}}">
+  <semantics>
+    <mrow class="MJX-TeXAtom-ORD">
+      <mstyle displaystyle="true" scriptlevel="0">
+        <msub>
+          <mi>A</mi>
+          <mrow class="MJX-TeXAtom-ORD">
+            <mi>k</mi>
+          </mrow>
+        </msub>
+      </mstyle>
+    </mrow>
+    <annotation encoding="application/x-tex">{\displaystyle A_{k}}</annotation>
+  </semantics>
+</math></span><img src="QR%20algorithm%20-%20Wikipedia_files/72095229db907e86eb4343cb4736429fcc56507d.svg" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.671ex; width:2.832ex; height:2.509ex;" alt="A_{k}"></span> is sufficiently small.
+</p>
+<h3><span class="mw-headline" id="Renaming_proposal">Renaming proposal</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=QR_algorithm&amp;action=edit&amp;section=3" title="Edit section: Renaming proposal">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Since in the modern implicit version of the procedure no <a href="https://en.wikipedia.org/wiki/QR_decomposition" title="QR decomposition">QR decompositions</a> are explicitly performed, some authors, for instance Watkins,<sup id="cite_ref-8" class="reference"><a href="#cite_note-8">[8]</a></sup> suggested changing its name to <i>Francis algorithm</i>. <a href="https://en.wikipedia.org/wiki/Gene_H._Golub" title="Gene H. Golub">Golub</a> and <a href="https://en.wikipedia.org/wiki/Charles_F._Van_Loan" title="Charles F. Van Loan">Van Loan</a> use the term <i>Francis QR step</i>.
+</p>
+<h2><span class="mw-headline" id="Interpretation_and_convergence">Interpretation and convergence</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=QR_algorithm&amp;action=edit&amp;section=4" title="Edit section: Interpretation and convergence">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The QR algorithm can be seen as a more sophisticated variation of the basic "power" <a href="https://en.wikipedia.org/wiki/Eigenvalue_algorithm" title="Eigenvalue algorithm">eigenvalue algorithm</a>. Recall that the power algorithm repeatedly multiplies <i>A</i>
+ times a single vector, normalizing after each iteration. The vector 
+converges to an eigenvector of the largest eigenvalue. Instead, the QR 
+algorithm works with a complete basis of vectors, using QR decomposition
+ to renormalize (and orthogonalize). For a symmetric matrix <i>A</i>, upon convergence, <i>AQ</i> = <i>QΛ</i>, where <i>Λ</i> is the diagonal matrix of eigenvalues to which <i>A</i> converged, and where <i>Q</i> is a composite of all the orthogonal similarity transforms required to get there. Thus the columns of <i>Q</i> are the eigenvectors.
+</p>
+<h2><span class="mw-headline" id="History">History</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=QR_algorithm&amp;action=edit&amp;section=5" title="Edit section: History">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The QR algorithm was preceded by the <i>LR algorithm</i>, which uses the <a href="https://en.wikipedia.org/wiki/LU_decomposition" title="LU decomposition">LU decomposition</a>
+ instead of the QR decomposition. The QR algorithm is more stable, so 
+the LR algorithm is rarely used nowadays. However, it represents an 
+important step in the development of the QR algorithm.
+</p><p>The LR algorithm was developed in the early 1950s by <a href="https://en.wikipedia.org/wiki/Heinz_Rutishauser" title="Heinz Rutishauser">Heinz Rutishauser</a>, who worked at that time as a research assistant of <a href="https://en.wikipedia.org/wiki/Eduard_Stiefel" title="Eduard Stiefel">Eduard Stiefel</a> at <a href="https://en.wikipedia.org/wiki/ETH_Zurich" title="ETH Zurich">ETH Zurich</a>. Stiefel suggested that Rutishauer use the sequence of moments <i>y</i><sub>0</sub><sup>T</sup> <i>A</i><sup><i>k</i></sup> <i>x</i><sub>0</sub>, <i>k</i> = 0, 1, … (where <i>x</i><sub>0</sub> and <i>y</i><sub>0</sub> are arbitrary vectors) to find the eigenvalues of <i>A</i>. Rutishauer took an algorithm of <a href="https://en.wikipedia.org/wiki/Alexander_Aitken" title="Alexander Aitken">Alexander Aitken</a> for this task and developed it into the <i>quotient–difference algorithm</i> or <i>qd algorithm</i>. After arranging the computation in a suitable shape, he discovered that the qd algorithm is in fact the iteration <i>A</i><sub><i>k</i></sub> = <i>L</i><sub><i>k</i></sub><i>U</i><sub><i>k</i></sub> (LU decomposition), <i>A</i><sub><i>k</i>+1</sub> = <i>U</i><sub><i>k</i></sub><i>L</i><sub><i>k</i></sub>, applied on a tridiagonal matrix, from which the LR algorithm follows.<sup id="cite_ref-9" class="reference"><a href="#cite_note-9">[9]</a></sup>
+</p>
+<h2><span class="mw-headline" id="Other_variants">Other variants</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=QR_algorithm&amp;action=edit&amp;section=6" title="Edit section: Other variants">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>One variant of the <i>QR algorithm</i>, <i>the Golub-Kahan-Reinsch</i> algorithm starts with reducing a general matrix into a bidiagonal one.<sup id="cite_ref-10" class="reference"><a href="#cite_note-10">[10]</a></sup> This variant of the <i>QR algorithm</i> for the computation of <a href="https://en.wikipedia.org/wiki/Singular_values" class="mw-redirect" title="Singular values">singular values</a> was first described by <a href="#CITEREFGolubKahan1965">Golub &amp; Kahan (1965)</a>. The <a href="https://en.wikipedia.org/wiki/LAPACK" title="LAPACK">LAPACK</a> subroutine <a rel="nofollow" class="external text" href="http://www.netlib.org/lapack/double/dbdsqr.f">DBDSQR</a> implements this iterative method, with some modifications to cover the case where the singular values are very small (<a href="#CITEREFDemmelKahan1990">Demmel &amp; Kahan 1990</a>). Together with a first step using Householder reflections and, if appropriate, <a href="https://en.wikipedia.org/wiki/QR_decomposition" title="QR decomposition">QR decomposition</a>, this forms the <a rel="nofollow" class="external text" href="http://www.netlib.org/lapack/double/dgesvd.f">DGESVD</a> routine for the computation of the <a href="https://en.wikipedia.org/wiki/Singular_value_decomposition" title="Singular value decomposition">singular value decomposition</a>.
+</p>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=QR_algorithm&amp;action=edit&amp;section=7" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist columns references-column-width" style="-moz-column-width: 30em; -webkit-column-width: 30em; column-width: 30em; list-style-type: decimal;">
+<ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1" aria-label="Jump up" title="Jump up">^</a></b></span> <span class="reference-text">J.G.F. Francis, "The QR Transformation, I", <i><a href="https://en.wikipedia.org/wiki/The_Computer_Journal" title="The Computer Journal">The Computer Journal</a></i>, <b>4</b>(3), pages 265–271 (1961, received October 1959). <a href="https://doi.org/10.1093/comjnl/4.3.265" class="extiw" title="doi:10.1093/comjnl/4.3.265">doi:10.1093/comjnl/4.3.265</a></span>
+</li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2" aria-label="Jump up" title="Jump up">^</a></b></span> <span class="reference-text"><cite class="citation journal">Francis, J. G. F. (1962). "The QR Transformation, II". <i>The Computer Journal</i>. <b>4</b> (4): 332–345. <a href="https://en.wikipedia.org/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1093%2Fcomjnl%2F4.4.332">10.1093/comjnl/4.4.332</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=The+Computer+Journal&amp;rft.atitle=The+QR+Transformation%2C+II&amp;rft.volume=4&amp;rft.issue=4&amp;rft.pages=332-345&amp;rft.date=1962&amp;rft_id=info%3Adoi%2F10.1093%2Fcomjnl%2F4.4.332&amp;rft.aulast=Francis&amp;rft.aufirst=J.+G.+F.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQR+algorithm" class="Z3988"></span><style data-mw-deduplicate="TemplateStyles:r886058088">.mw-parser-output cite.citation{font-style:inherit}.mw-parser-output .citation q{quotes:"\"""\"""'""'"}.mw-parser-output .citation .cs1-lock-free a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/6/65/Lock-green.svg/9px-Lock-green.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .citation .cs1-lock-limited a,.mw-parser-output .citation .cs1-lock-registration a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Lock-gray-alt-2.svg/9px-Lock-gray-alt-2.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .citation .cs1-lock-subscription a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Lock-red-alt-2.svg/9px-Lock-red-alt-2.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output .cs1-subscription,.mw-parser-output .cs1-registration{color:#555}.mw-parser-output .cs1-subscription span,.mw-parser-output .cs1-registration span{border-bottom:1px dotted;cursor:help}.mw-parser-output .cs1-ws-icon a{background:url("//upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Wikisource-logo.svg/12px-Wikisource-logo.svg.png")no-repeat;background-position:right .1em center}.mw-parser-output code.cs1-code{color:inherit;background:inherit;border:inherit;padding:inherit}.mw-parser-output .cs1-hidden-error{display:none;font-size:100%}.mw-parser-output .cs1-visible-error{font-size:100%}.mw-parser-output .cs1-maint{display:none;color:#33aa33;margin-left:0.3em}.mw-parser-output .cs1-subscription,.mw-parser-output .cs1-registration,.mw-parser-output .cs1-format{font-size:95%}.mw-parser-output .cs1-kern-left,.mw-parser-output .cs1-kern-wl-left{padding-left:0.2em}.mw-parser-output .cs1-kern-right,.mw-parser-output .cs1-kern-wl-right{padding-right:0.2em}</style></span>
+</li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3" aria-label="Jump up" title="Jump up">^</a></b></span> <span class="reference-text">
+Vera N. Kublanovskaya, "On some algorithms for the solution of the complete eigenvalue problem," <i>USSR Computational Mathematics and Mathematical Physics</i>, vol. 1, no. 3, pages 637–657 (1963, received Feb 1961). Also published in: <i>Zhurnal Vychislitel'noi Matematiki i Matematicheskoi Fiziki</i>, vol.1, no. 4, pages 555–570 (1961). <a href="https://doi.org/10.1016/0041-5553(63)90168-X" class="extiw" title="doi:10.1016/0041-5553(63)90168-X">doi:10.1016/0041-5553(63)90168-X</a></span>
+</li>
+<li id="cite_note-golubvanloan-4"><span class="mw-cite-backlink">^ <a href="#cite_ref-golubvanloan_4-0"><span class="cite-accessibility-label">Jump up to: </span><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-golubvanloan_4-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation book">Golub, G. H.; Van Loan, C. F. (1996). <i>Matrix Computations</i> (3rd ed.). Baltimore: Johns Hopkins University Press. <a href="https://en.wikipedia.org/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&nbsp;<a href="https://en.wikipedia.org/wiki/Special:BookSources/0-8018-5414-8" title="Special:BookSources/0-8018-5414-8">0-8018-5414-8</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Matrix+Computations&amp;rft.place=Baltimore&amp;rft.edition=3rd&amp;rft.pub=Johns+Hopkins+University+Press&amp;rft.date=1996&amp;rft.isbn=0-8018-5414-8&amp;rft.aulast=Golub&amp;rft.aufirst=G.+H.&amp;rft.au=Van+Loan%2C+C.+F.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQR+algorithm" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886058088"></span>
+</li>
+<li id="cite_note-Demmel-5"><span class="mw-cite-backlink">^ <a href="#cite_ref-Demmel_5-0"><span class="cite-accessibility-label">Jump up to: </span><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Demmel_5-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation book"><a href="https://en.wikipedia.org/wiki/James_W._Demmel" class="mw-redirect" title="James W. Demmel">Demmel, James W.</a> (1997). <i>Applied Numerical Linear Algebra</i>. SIAM.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Applied+Numerical+Linear+Algebra&amp;rft.pub=SIAM&amp;rft.date=1997&amp;rft.aulast=Demmel&amp;rft.aufirst=James+W.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQR+algorithm" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886058088"></span>
+</li>
+<li id="cite_note-Trefethen-6"><span class="mw-cite-backlink">^ <a href="#cite_ref-Trefethen_6-0"><span class="cite-accessibility-label">Jump up to: </span><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-Trefethen_6-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation book"><a href="https://en.wikipedia.org/wiki/Lloyd_N._Trefethen" title="Lloyd N. Trefethen">Trefethen, Lloyd N.</a>; Bau, David (1997). <i>Numerical Linear Algebra</i>. SIAM.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Numerical+Linear+Algebra&amp;rft.pub=SIAM&amp;rft.date=1997&amp;rft.aulast=Trefethen&amp;rft.aufirst=Lloyd+N.&amp;rft.au=Bau%2C+David&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQR+algorithm" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886058088"></span>
+</li>
+<li id="cite_note-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-7" aria-label="Jump up" title="Jump up">^</a></b></span> <span class="reference-text"><cite class="citation journal">Ortega, James M.; Kaiser, Henry F. (1963). "The <i>LL<sup>T</sup></i> and <i>QR</i> methods for symmetric tridiagonal matrices". <i>The Computer Journal</i>. <b>6</b> (1): 99–101. <a href="https://en.wikipedia.org/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1093%2Fcomjnl%2F6.1.99">10.1093/comjnl/6.1.99</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=The+Computer+Journal&amp;rft.atitle=The+LL%3Csup%3ET%3C%2Fsup%3E+and+QR+methods+for+symmetric+tridiagonal+matrices&amp;rft.volume=6&amp;rft.issue=1&amp;rft.pages=99-101&amp;rft.date=1963&amp;rft_id=info%3Adoi%2F10.1093%2Fcomjnl%2F6.1.99&amp;rft.aulast=Ortega&amp;rft.aufirst=James+M.&amp;rft.au=Kaiser%2C+Henry+F.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQR+algorithm" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886058088"></span>
+</li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8" aria-label="Jump up" title="Jump up">^</a></b></span> <span class="reference-text"><cite class="citation book">Watkins, David S. (2007). <i>The Matrix Eigenvalue Problem: GR and Krylov Subspace Methods</i>. Philadelphia, PA: SIAM. <a href="https://en.wikipedia.org/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&nbsp;<a href="https://en.wikipedia.org/wiki/Special:BookSources/978-0-89871-641-2" title="Special:BookSources/978-0-89871-641-2">978-0-89871-641-2</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=The+Matrix+Eigenvalue+Problem%3A+GR+and+Krylov+Subspace+Methods&amp;rft.place=Philadelphia%2C+PA&amp;rft.pub=SIAM&amp;rft.date=2007&amp;rft.isbn=978-0-89871-641-2&amp;rft.aulast=Watkins&amp;rft.aufirst=David+S.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQR+algorithm" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886058088"></span>
+</li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-9" aria-label="Jump up" title="Jump up">^</a></b></span> <span class="reference-text"><cite id="CITEREFParlettGutknecht2011" class="citation">Parlett, Beresford N.; Gutknecht, Martin H. (2011), "From qd to LR, or, how were the qd and LR algorithms discovered?", <i>IMA Journal of Numerical Analysis</i>, <b>31</b>: 741–754, <a href="https://en.wikipedia.org/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="https://doi.org/10.1093%2Fimanum%2Fdrq003">10.1093/imanum/drq003</a>, <a href="https://en.wikipedia.org/wiki/International_Standard_Serial_Number" title="International Standard Serial Number">ISSN</a>&nbsp;<a rel="nofollow" class="external text" href="https://www.worldcat.org/issn/0272-4979">0272-4979</a></cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=IMA+Journal+of+Numerical+Analysis&amp;rft.atitle=From+qd+to+LR%2C+or%2C+how+were+the+qd+and+LR+algorithms+discovered%3F&amp;rft.volume=31&amp;rft.pages=741-754&amp;rft.date=2011&amp;rft_id=info%3Adoi%2F10.1093%2Fimanum%2Fdrq003&amp;rft.issn=0272-4979&amp;rft.aulast=Parlett&amp;rft.aufirst=Beresford+N.&amp;rft.au=Gutknecht%2C+Martin+H.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQR+algorithm" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886058088"></span>
+</li>
+<li id="cite_note-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-10" aria-label="Jump up" title="Jump up">^</a></b></span> <span class="reference-text">Bochkanov
+ Sergey Anatolyevich. ALGLIB User Guide - General Matrix operations - 
+Singular value decomposition . ALGLIB Project. 2010-12-11. URL:<a rel="nofollow" class="external free" href="http://www.alglib.net/matrixops/general/svd.php">http://www.alglib.net/matrixops/general/svd.php</a>.<sup class="noprint Inline-Template"><span style="white-space: nowrap;">[<i><a href="https://en.wikipedia.org/wiki/Wikipedia:Link_rot" title="Wikipedia:Link rot"><span title="&nbsp;Dead link since July 2016">permanent dead link</span></a></i>]</span></sup> Accessed: 2010-12-11. (Archived by WebCite at <a rel="nofollow" class="external free" href="https://www.webcitation.org/5utO4iSnR">https://www.webcitation.org/5utO4iSnR</a>)</span>
+</li>
+</ol></div>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="https://en.wikipedia.org/w/index.php?title=QR_algorithm&amp;action=edit&amp;section=8" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><cite class="citation web"><a rel="nofollow" class="external text" href="http://planetmath.org/?op=getobj&amp;from=objects&amp;id=1474">"Eigenvalue problem"</a>. <i><a href="https://en.wikipedia.org/wiki/PlanetMath" title="PlanetMath">PlanetMath</a></i>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=unknown&amp;rft.jtitle=PlanetMath&amp;rft.atitle=Eigenvalue+problem&amp;rft_id=http%3A%2F%2Fplanetmath.org%2F%3Fop%3Dgetobj%26amp%3Bfrom%3Dobjects%26amp%3Bid%3D1474&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AQR+algorithm" class="Z3988"></span><link rel="mw-deduplicated-inline-style" href="mw-data:TemplateStyles:r886058088"></li>
+<li><a rel="nofollow" class="external text" href="http://www-users.math.umn.edu/~olver/aims_/qr.pdf">Notes on orthogonal bases and the workings of the QR algorithm</a> by <a href="https://en.wikipedia.org/wiki/Peter_J._Olver" title="Peter J. Olver">Peter J. Olver</a></li>
+<li><a rel="nofollow" class="external text" href="https://web.archive.org/web/20081209042103/http://math.fullerton.edu/mathews/n2003/QRMethodMod.html">Module for the QR Method</a></li>
+<li><a rel="nofollow" class="external text" href="https://github.com/nom-de-guerre/Matrices">C++ Library</a></li></ul>
+<div role="navigation" class="navbox" aria-labelledby="Numerical_linear_algebra" style="padding:3px"><table class="nowraplinks collapsible autocollapse navbox-inner mw-collapsible mw-made-collapsible" style="border-spacing:0;background:transparent;color:inherit"><tbody><tr><th scope="col" class="navbox-title" colspan="2"><span class="mw-collapsible-toggle mw-collapsible-toggle-default" role="button" tabindex="0"><a class="mw-collapsible-text">hide</a></span><div class="plainlinks hlist navbar mini"><ul><li class="nv-view"><a href="https://en.wikipedia.org/wiki/Template:Numerical_linear_algebra" title="Template:Numerical linear algebra"><abbr title="View this template" style=";;background:none transparent;border:none;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none; padding:0;">v</abbr></a></li><li class="nv-talk"><a href="https://en.wikipedia.org/wiki/Template_talk:Numerical_linear_algebra" title="Template talk:Numerical linear algebra"><abbr title="Discuss this template" style=";;background:none transparent;border:none;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none; padding:0;">t</abbr></a></li><li class="nv-edit"><a class="external text" href="https://en.wikipedia.org/w/index.php?title=Template:Numerical_linear_algebra&amp;action=edit"><abbr title="Edit this template" style=";;background:none transparent;border:none;-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none; padding:0;">e</abbr></a></li></ul></div><div id="Numerical_linear_algebra" style="font-size:114%;margin:0 4em"><a href="https://en.wikipedia.org/wiki/Numerical_linear_algebra" title="Numerical linear algebra">Numerical linear algebra</a></div></th></tr><tr><th scope="row" class="navbox-group" style="width:1%">Key concepts</th><td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px"><div style="padding:0em 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Floating_point" class="mw-redirect" title="Floating point">Floating point</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Numerical_stability" title="Numerical stability">Numerical stability</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Problems</th><td class="navbox-list navbox-even hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px"><div style="padding:0em 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/System_of_linear_equations" title="System of linear equations">Linear equations</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Matrix_decomposition" title="Matrix decomposition">Matrix decompositions</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Matrix_multiplication" title="Matrix multiplication">Matrix multiplication</a> (<a href="https://en.wikipedia.org/wiki/Matrix_multiplication_algorithm" title="Matrix multiplication algorithm">algorithms</a>)</li>
+<li><a href="https://en.wikipedia.org/wiki/Matrix_splitting" title="Matrix splitting">Matrix splitting</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Sparse_matrix" title="Sparse matrix">Sparse problems</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Hardware</th><td class="navbox-list navbox-odd hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px"><div style="padding:0em 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/CPU_cache" title="CPU cache">CPU cache</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Translation_lookaside_buffer" title="Translation lookaside buffer">TLB</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Cache-oblivious_algorithm" title="Cache-oblivious algorithm">Cache-oblivious algorithm</a></li>
+<li><a href="https://en.wikipedia.org/wiki/SIMD" title="SIMD">SIMD</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Multiprocessing" title="Multiprocessing">Multiprocessing</a></li></ul>
+</div></td></tr><tr><th scope="row" class="navbox-group" style="width:1%">Software</th><td class="navbox-list navbox-even hlist" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px"><div style="padding:0em 0.25em">
+<ul><li><a href="https://en.wikipedia.org/wiki/Basic_Linear_Algebra_Subprograms" title="Basic Linear Algebra Subprograms">BLAS</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Comparison_of_linear_algebra_libraries" title="Comparison of linear algebra libraries">Specialized libraries</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Comparison_of_numerical_analysis_software" class="mw-redirect" title="Comparison of numerical analysis software">General purpose software</a></li></ul>
+</div></td></tr></tbody></table></div>
+<!-- 
+NewPP limit report
+Parsed by mw1244
+Cached time: 20190324164037
+Cache expiry: 2592000
+Dynamic content: false
+CPU time usage: 0.448 seconds
+Real time usage: 0.594 seconds
+Preprocessor visited node count: 950/1000000
+Preprocessor generated node count: 0/1500000
+Post‐expand include size: 25152/2097152 bytes
+Template argument size: 1126/2097152 bytes
+Highest expansion depth: 12/40
+Expensive parser function count: 4/500
+Unstrip recursion depth: 1/20
+Unstrip post‐expand size: 24875/5000000 bytes
+Number of Wikibase entities loaded: 2/400
+Lua time usage: 0.227/10.000 seconds
+Lua memory usage: 3.98 MB/50 MB
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  428.989      1 -total
+ 63.45%  272.196      1 Template:Reflist
+ 34.23%  146.856      2 Template:Cite_journal
+ 23.93%  102.644      1 Template:Clarify
+ 18.75%   80.446      1 Template:Fix-span
+ 12.61%   54.112      4 Template:Category_handler
+  8.44%   36.226      4 Template:Cite_book
+  8.21%   35.234      1 Template:Citation
+  6.06%   26.017      1 Template:Replace
+  4.35%   18.676      1 Template:Numerical_linear_algebra
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:594072-0!canonical!math=5 and timestamp 20190324164037 and revision id 814345957
+ -->
+</div><noscript><img src="//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>
+		
+		<div class="printfooter">Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=QR_algorithm&amp;oldid=814345957">https://en.wikipedia.org/w/index.php?title=QR_algorithm&amp;oldid=814345957</a>"</div>
+		
+		<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://en.wikipedia.org/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="https://en.wikipedia.org/wiki/Category:Numerical_linear_algebra" title="Category:Numerical linear algebra">Numerical linear algebra</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="https://en.wikipedia.org/wiki/Category:All_articles_with_dead_external_links" title="Category:All articles with dead external links">All articles with dead external links</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_dead_external_links_from_July_2016" title="Category:Articles with dead external links from July 2016">Articles with dead external links from July 2016</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Articles_with_permanently_dead_external_links" title="Category:Articles with permanently dead external links">Articles with permanently dead external links</a></li><li><a href="https://en.wikipedia.org/wiki/Category:Wikipedia_articles_needing_clarification_from_June_2012" title="Category:Wikipedia articles needing clarification from June 2012">Wikipedia articles needing clarification from June 2012</a></li></ul></div></div>
+		
+		<div class="visualClear"></div>
+		
+	</div>
+</div>
+
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-anonuserpage">Not logged in</li><li id="pt-anontalk"><a href="https://en.wikipedia.org/wiki/Special:MyTalk" title="Discussion about edits from this IP address [Alt+Shift+n]" accesskey="n">Talk</a></li><li id="pt-anoncontribs"><a href="https://en.wikipedia.org/wiki/Special:MyContributions" title="A list of edits made from this IP address [Alt+Shift+y]" accesskey="y">Contributions</a></li><li id="pt-createaccount"><a href="https://en.wikipedia.org/w/index.php?title=Special:CreateAccount&amp;returnto=QR+algorithm" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://en.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=QR+algorithm" title="You're encouraged to log in; however, it's not mandatory. [Alt+Shift+o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+							<li id="ca-nstab-main" class="selected"><span><a href="https://en.wikipedia.org/wiki/QR_algorithm" title="View the content page [Alt+Shift+c]" accesskey="c">Article</a></span></li><li id="ca-talk"><span><a href="https://en.wikipedia.org/wiki/Talk:QR_algorithm" rel="discussion" title="Discussion about the content page [Alt+Shift+t]" accesskey="t">Talk</a></span></li>						</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-variants-label">
+						<h3 id="p-variants-label">
+							<span>Variants</span>
+						</h3>
+						<ul class="menu">
+													</ul>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+							<li id="ca-view" class="collapsible selected"><span><a href="https://en.wikipedia.org/wiki/QR_algorithm">Read</a></span></li><li id="ca-edit" class="collapsible"><span><a href="https://en.wikipedia.org/w/index.php?title=QR_algorithm&amp;action=edit" title="Edit this page [Alt+Shift+e]" accesskey="e">Edit</a></span></li><li id="ca-history" class="collapsible"><span><a href="https://en.wikipedia.org/w/index.php?title=QR_algorithm&amp;action=history" title="Past revisions of this page [Alt+Shift+h]" accesskey="h">View history</a></span></li>						</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label" style="">
+						<input type="checkbox" class="vectorMenuCheckbox" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span></h3>
+						<ul class="menu">
+													</ul>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+						<form action="/w/index.php" id="searchform">
+							<div id="simpleSearch">
+								<input type="search" name="search" placeholder="Search Wikipedia" title="Search Wikipedia [Alt+Shift+f]" accesskey="f" id="searchInput" tabindex="1" autocomplete="off"><input type="hidden" value="Special:Search" name="title"><input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton">							</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="https://en.wikipedia.org/wiki/Main_Page" title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
+			<h3 id="p-navigation-label">Navigation</h3>
+			<div class="body">
+								<ul>
+					<li id="n-mainpage-description"><a href="https://en.wikipedia.org/wiki/Main_Page" title="Visit the main page [Alt+Shift+z]" accesskey="z">Main page</a></li><li id="n-contents"><a href="https://en.wikipedia.org/wiki/Portal:Contents" title="Guides to browsing Wikipedia">Contents</a></li><li id="n-featuredcontent"><a href="https://en.wikipedia.org/wiki/Portal:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li><li id="n-currentevents"><a href="https://en.wikipedia.org/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li><li id="n-randompage"><a href="https://en.wikipedia.org/wiki/Special:Random" title="Load a random article [Alt+Shift+x]" accesskey="x">Random article</a></li><li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us">Donate to Wikipedia</a></li><li id="n-shoplink"><a href="https://shop.wikimedia.org/" title="Visit the Wikipedia store">Wikipedia store</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-interaction" aria-labelledby="p-interaction-label">
+			<h3 id="p-interaction-label">Interaction</h3>
+			<div class="body">
+								<ul>
+					<li id="n-help"><a href="https://en.wikipedia.org/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li><li id="n-aboutsite"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Find out about Wikipedia">About Wikipedia</a></li><li id="n-portal"><a href="https://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li><li id="n-recentchanges"><a href="https://en.wikipedia.org/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [Alt+Shift+r]" accesskey="r">Recent changes</a></li><li id="n-contactpage"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia">Contact page</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label">Tools</h3>
+			<div class="body">
+								<ul>
+					<li id="t-whatlinkshere"><a href="https://en.wikipedia.org/wiki/Special:WhatLinksHere/QR_algorithm" title="List of all English Wikipedia pages containing links to this page [Alt+Shift+j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://en.wikipedia.org/wiki/Special:RecentChangesLinked/QR_algorithm" rel="nofollow" title="Recent changes in pages linked from this page [Alt+Shift+k]" accesskey="k">Related changes</a></li><li id="t-upload"><a href="https://en.wikipedia.org/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [Alt+Shift+u]" accesskey="u">Upload file</a></li><li id="t-specialpages"><a href="https://en.wikipedia.org/wiki/Special:SpecialPages" title="A list of all special pages [Alt+Shift+q]" accesskey="q">Special pages</a></li><li id="t-permalink"><a href="https://en.wikipedia.org/w/index.php?title=QR_algorithm&amp;oldid=814345957" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://en.wikipedia.org/w/index.php?title=QR_algorithm&amp;action=info" title="More information about this page">Page information</a></li><li id="t-wikibase"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q453132" title="Link to connected data repository item [Alt+Shift+g]" accesskey="g">Wikidata item</a></li><li id="t-cite"><a href="https://en.wikipedia.org/w/index.php?title=Special:CiteThisPage&amp;page=QR_algorithm&amp;id=814345957" title="Information on how to cite this page">Cite this page</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-coll-print_export" aria-labelledby="p-coll-print_export-label">
+			<h3 id="p-coll-print_export-label">Print/export</h3>
+			<div class="body">
+								<ul>
+					<li id="coll-create_a_book"><a href="https://en.wikipedia.org/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=QR+algorithm">Create a book</a></li><li id="coll-download-as-rdf2latex"><a href="https://en.wikipedia.org/w/index.php?title=Special:ElectronPdf&amp;page=QR+algorithm&amp;action=show-download-screen">Download as PDF</a></li><li id="t-print"><a href="https://en.wikipedia.org/w/index.php?title=QR_algorithm&amp;printable=yes" title="Printable version of this page [Alt+Shift+p]" accesskey="p">Printable version</a></li>				</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-lang" aria-labelledby="p-lang-label"><button class="uls-settings-trigger" title="Language settings"></button>
+			<h3 id="p-lang-label">Languages</h3>
+			<div class="body">
+								<ul>
+					<li class="interlanguage-link interwiki-de"><a href="https://de.wikipedia.org/wiki/QR-Algorithmus" title="QR-Algorithmus – German" hreflang="de" class="interlanguage-link-target" lang="de">Deutsch</a></li><li class="interlanguage-link interwiki-es"><a href="https://es.wikipedia.org/wiki/Algoritmo_QR" title="Algoritmo QR – Spanish" hreflang="es" class="interlanguage-link-target" lang="es">Español</a></li><li class="interlanguage-link interwiki-he"><a href="https://he.wikipedia.org/wiki/%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D_QR" title="אלגוריתם QR – Hebrew" hreflang="he" class="interlanguage-link-target" lang="he">עברית</a></li><li class="interlanguage-link interwiki-ja"><a href="https://ja.wikipedia.org/wiki/QR%E6%B3%95" title="QR法 – Japanese" hreflang="ja" class="interlanguage-link-target" lang="ja">日本語</a></li><li class="interlanguage-link interwiki-ru"><a href="https://ru.wikipedia.org/wiki/QR-%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC" title="QR-алгоритм – Russian" hreflang="ru" class="interlanguage-link-target" lang="ru">Русский</a></li><li class="interlanguage-link interwiki-fi"><a href="https://fi.wikipedia.org/wiki/QR-algoritmi" title="QR-algoritmi – Finnish" hreflang="fi" class="interlanguage-link-target" lang="fi">Suomi</a></li>				</ul>
+				<div class="after-portlet after-portlet-lang"><span class="wb-langlinks-edit wb-langlinks-link"><a href="https://www.wikidata.org/wiki/Special:EntityPage/Q453132#sitelinks-wikipedia" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>			</div>
+		</div>
+				</div>
+		</div>
+				<div id="footer" role="contentinfo">
+						<ul id="footer-info">
+								<li id="footer-info-lastmod"> This page was last edited on 8 December 2017, at 07:06<span class="anonymous-show">&nbsp;(UTC)</span>.</li>
+								<li id="footer-info-copyright">Text is available under the <a rel="license" href="https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="https://foundation.wikimedia.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="https://foundation.wikimedia.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="https://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+							</ul>
+						<ul id="footer-places">
+								<li id="footer-places-privacy"><a href="https://foundation.wikimedia.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy policy</a></li>
+								<li id="footer-places-about"><a href="https://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+								<li id="footer-places-disclaimer"><a href="https://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+								<li id="footer-places-contact"><a href="https://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+								<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+								<li id="footer-places-cookiestatement"><a href="https://foundation.wikimedia.org/wiki/Cookie_statement">Cookie statement</a></li>
+								<li id="footer-places-mobileview"><a href="https://en.m.wikipedia.org/w/index.php?title=QR_algorithm&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+							<li style="display: none;"><a href="#">Enable previews</a></li></ul>
+										<ul id="footer-icons" class="noprint">
+										<li id="footer-copyrightico">
+						<a href="https://wikimediafoundation.org/"><img src="QR%20algorithm%20-%20Wikipedia_files/wikimedia-button.png" srcset="/static/images/wikimedia-button-1.5x.png 1.5x, /static/images/wikimedia-button-2x.png 2x" alt="Wikimedia Foundation" width="88" height="31"></a>					</li>
+										<li id="footer-poweredbyico">
+						<a href="https://www.mediawiki.org/"><img src="QR%20algorithm%20-%20Wikipedia_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/static/images/poweredby_mediawiki_132x47.png 1.5x, /static/images/poweredby_mediawiki_176x62.png 2x" width="88" height="31"></a>					</li>
+									</ul>
+						<div style="clear: both;"></div>
+		</div>
+		
+
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.448","walltime":"0.594","ppvisitednodes":{"value":950,"limit":1000000},"ppgeneratednodes":{"value":0,"limit":1500000},"postexpandincludesize":{"value":25152,"limit":2097152},"templateargumentsize":{"value":1126,"limit":2097152},"expansiondepth":{"value":12,"limit":40},"expensivefunctioncount":{"value":4,"limit":500},"unstrip-depth":{"value":1,"limit":20},"unstrip-size":{"value":24875,"limit":5000000},"entityaccesscount":{"value":2,"limit":400},"timingprofile":["100.00%  428.989      1 -total"," 63.45%  272.196      1 Template:Reflist"," 34.23%  146.856      2 Template:Cite_journal"," 23.93%  102.644      1 Template:Clarify"," 18.75%   80.446      1 Template:Fix-span"," 12.61%   54.112      4 Template:Category_handler","  8.44%   36.226      4 Template:Cite_book","  8.21%   35.234      1 Template:Citation","  6.06%   26.017      1 Template:Replace","  4.35%   18.676      1 Template:Numerical_linear_algebra"]},"scribunto":{"limitreport-timeusage":{"value":"0.227","limit":"10.000"},"limitreport-memusage":{"value":4170723,"limit":52428800}},"cachereport":{"origin":"mw1244","timestamp":"20190324164037","ttl":2592000,"transientcontent":false}}});});</script>
+<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"Article","name":"QR algorithm","url":"https:\/\/en.wikipedia.org\/wiki\/QR_algorithm","sameAs":"http:\/\/www.wikidata.org\/entity\/Q453132","mainEntity":"http:\/\/www.wikidata.org\/entity\/Q453132","author":{"@type":"Organization","name":"Contributors to Wikimedia projects"},"publisher":{"@type":"Organization","name":"Wikimedia Foundation, Inc.","logo":{"@type":"ImageObject","url":"https:\/\/www.wikimedia.org\/static\/images\/wmf-hor-googpub.png"}},"datePublished":"2004-04-13T13:43:49Z","dateModified":"2017-12-08T07:06:40Z","headline":"algorithm"}</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":102,"wgHostname":"mw1273"});});</script>
+
+
+<div style="display: none; font-size: 13px;" class="suggestions"><div class="suggestions-results"></div><div class="suggestions-special"></div></div><a accesskey="v" href="https://en.wikipedia.org/wiki/QR_algorithm?action=edit" class="oo-ui-element-hidden"></a><div id="mwe-popups-svg"><svg xmlns="http://www.w3.org/2000/svg" width="0" height="0"><defs><clipPath id="mwe-popups-mask"><path d="M0 8h10l8-8 8 8h974v992H0z"></path></clipPath><clipPath id="mwe-popups-mask-flip"><path d="M0 8h294l8-8 8 8h690v992H0z"></path></clipPath><clipPath id="mwe-popups-landscape-mask"><path d="M0 8h174l8-8 8 8h810v992H0z"></path></clipPath><clipPath id="mwe-popups-landscape-mask-flip"><path d="M0 0h1000v242H190l-8 8-8-8H0z"></path></clipPath></defs></svg></div></body></html>
