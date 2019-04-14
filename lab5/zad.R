@@ -12,7 +12,7 @@ fit = lm(naive ~ poly(as.vector(avg_results[["size"]]), 3, raw=TRUE), data=avg_r
 newdata = data.frame(x = avg_results[["size"]])
 newdata$y = predict(fit, newdata)
 
-fit2 = lm(better ~ poly(as.vector(avg_results[["size"]]), 3, raw=TRUE), data=avg_results)
+fit2 = lm(better ~ poly(avg_results[["size"]], 3, raw=TRUE), data=avg_results)
 newdata2 = data.frame(x = avg_results[["size"]])
 newdata2$y = predict(fit2, newdata2)
 
